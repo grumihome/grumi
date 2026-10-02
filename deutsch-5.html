@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deutsch Klasse 5: Grammatik - Mittelschule Unterhaching am Sportpark</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5d6678;
+      --paper: #fffdf7;
+      --line: #dfe6ee;
+      --blue: #2f6fed;
+      --green: #2c9c69;
+      --coral: #e86454;
+      --yellow: #f2b84b;
+      --violet: #7b61d1;
+      --sky: #eaf4ff;
+      --mint: #e9f8ef;
+      --rose: #fff0ed;
+      --sun: #fff6d9;
+      --lavender: #f2efff;
+      --green-ink: #1f7a52;
+      --coral-ink: #b8433a;
+      --shadow: 0 14px 34px rgba(21, 32, 51, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(232, 100, 84, 0.10), transparent 26rem),
+        radial-gradient(circle at 92% 12%, rgba(47, 111, 237, 0.10), transparent 25rem),
+        var(--paper);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(223, 230, 238, 0.85);
+      background: rgba(255, 253, 247, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--coral);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .brand span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ink);
+      background: #ffffff;
+      outline: 2px solid transparent;
+    }
+
+    main {
+      padding: 48px 0 64px;
+    }
+
+    main [id] {
+      scroll-margin-top: 88px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 32px;
+      align-items: center;
+      padding: 36px 0 46px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      color: var(--blue);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.1rem, 1.2rem + 2.2vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+      max-width: 720px;
+    }
+
+    .fact {
+      min-height: 86px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 18px rgba(21, 32, 51, 0.06);
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .visual {
+      min-height: 320px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .visual svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 34px 0 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 1.25rem + 1vw, 2.35rem);
+    }
+
+    .section-head p {
+      max-width: 540px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag {
+      align-self: start;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .progress {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      font-weight: 800;
+    }
+
+    .bar {
+      width: min(260px, 100%);
+      height: 14px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--green);
+      transition: width 0.3s ease;
+    }
+
+    .module-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .module-card {
+      display: flex;
+      min-height: 210px;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 12px 28px rgba(21, 32, 51, 0.08);
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .module-card:hover,
+    .module-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(21, 32, 51, 0.14);
+    }
+
+    .module-card.coral {
+      border-top: 7px solid var(--coral);
+      background: linear-gradient(180deg, var(--rose), #ffffff 42%);
+    }
+
+    .module-card.blue {
+      border-top: 7px solid var(--blue);
+      background: linear-gradient(180deg, var(--sky), #ffffff 42%);
+    }
+
+    .module-card.green {
+      border-top: 7px solid var(--green);
+      background: linear-gradient(180deg, var(--mint), #ffffff 42%);
+    }
+
+    .module-card.violet {
+      border-top: 7px solid var(--violet);
+      background: linear-gradient(180deg, var(--lavender), #ffffff 42%);
+    }
+
+    .module-card.yellow {
+      border-top: 7px solid var(--yellow);
+      background: linear-gradient(180deg, var(--sun), #ffffff 42%);
+    }
+
+    .module-card h3 {
+      margin: 12px 0 6px;
+      font-size: 1.2rem;
+      line-height: 1.25;
+    }
+
+    .module-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .card-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .done {
+      color: var(--green-ink);
+    }
+
+    .module {
+      margin-top: 44px;
+      padding-top: 6px;
+      border-top: 1px solid var(--line);
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: minmax(250px, 0.75fr) minmax(0, 1.5fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .merke {
+      position: sticky;
+      top: 92px;
+      padding: 22px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--sun);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .merke h3 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+    }
+
+    .merke p {
+      margin: 0 0 10px;
+    }
+
+    .merke ul {
+      margin: 0 0 10px;
+      padding-left: 20px;
+    }
+
+    .merke li {
+      margin-bottom: 6px;
+    }
+
+    .merke > :last-child {
+      margin-bottom: 0;
+    }
+
+    .mini {
+      width: 100%;
+      margin: 6px 0 12px;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.75);
+      font-size: 0.92rem;
+    }
+
+    .mini th,
+    .mini td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #eedca8;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .mini th {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .tasks {
+      display: grid;
+      gap: 18px;
+    }
+
+    .task {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--accent, var(--blue));
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 12px 28px rgba(21, 32, 51, 0.08);
+    }
+
+    .task-head {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .task-head .tag {
+      justify-self: start;
+    }
+
+    .task-head h3 {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.35;
+    }
+
+    .hint {
+      margin: 4px 0 8px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .items {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: item;
+    }
+
+    .item {
+      position: relative;
+      padding: 12px 34px 12px 30px;
+      border-top: 1px solid var(--line);
+      counter-increment: item;
+    }
+
+    .item:first-child {
+      border-top: 0;
+    }
+
+    .item::before {
+      content: counter(item) ".";
+      position: absolute;
+      top: 12px;
+      left: 0;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .item-text {
+      line-height: 1.8;
+    }
+
+    .status {
+      position: absolute;
+      top: 11px;
+      right: 4px;
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .item.ok .status {
+      color: var(--green-ink);
+    }
+
+    .item.bad .status {
+      color: var(--coral-ink);
+    }
+
+    mark.hl {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: #ffe39b;
+      color: inherit;
+      font-weight: 700;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .item-text + .options {
+      margin-top: 8px;
+    }
+
+    .options.stack {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .opt {
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .options.stack .opt {
+      font-weight: 400;
+    }
+
+    .opt:hover {
+      border-color: var(--ink);
+    }
+
+    .opt[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--sky);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .opt.is-right {
+      border-color: var(--green);
+      background: var(--mint);
+      box-shadow: 2px 2px 0 var(--green);
+    }
+
+    .opt.is-wrong {
+      border-color: var(--coral);
+      background: var(--rose);
+      box-shadow: 2px 2px 0 var(--coral);
+    }
+
+    .opt.is-solution {
+      border-color: var(--green);
+      background: var(--mint);
+      box-shadow: none;
+      outline: 2px dashed var(--green);
+      outline-offset: 2px;
+    }
+
+    .sentence {
+      font-size: 1.06rem;
+      line-height: 2.2;
+    }
+
+    .word {
+      padding: 1px 3px;
+      border: 0;
+      border-bottom: 2px dotted #b9c3d0;
+      border-radius: 6px 6px 0 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .word:hover {
+      background: var(--sky);
+    }
+
+    .word[aria-pressed="true"] {
+      border-bottom-color: var(--ink);
+      background: #ffe39b;
+    }
+
+    .word.is-right {
+      border-bottom: 2px solid var(--green);
+      background: var(--mint);
+    }
+
+    .word.is-wrong {
+      border-bottom: 2px solid var(--coral);
+      background: var(--rose);
+      text-decoration: line-through;
+    }
+
+    .word.is-solution {
+      background: var(--mint);
+      outline: 2px dashed var(--green);
+      outline-offset: 1px;
+    }
+
+    .gap {
+      max-width: 100%;
+      margin: 0 2px;
+      padding: 2px 6px;
+      border: 0;
+      border-bottom: 2px solid var(--ink);
+      border-radius: 6px 6px 0 0;
+      background: var(--sky);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 700;
+    }
+
+    .gap.is-right {
+      border-bottom-color: var(--green);
+      background: var(--mint);
+    }
+
+    .gap.is-wrong {
+      border-bottom-color: var(--coral);
+      background: var(--rose);
+    }
+
+    .gap.is-solution {
+      border-bottom: 2px dashed var(--green);
+      background: var(--mint);
+    }
+
+    .task-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .btn {
+      padding: 9px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #ffffff;
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      box-shadow: 3px 3px 0 var(--yellow);
+    }
+
+    .btn.ghost {
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--ink);
+    }
+
+    .btn.ghost:hover {
+      border-color: var(--ink);
+      box-shadow: none;
+    }
+
+    .btn:focus-visible,
+    .opt:focus-visible,
+    .word:focus-visible,
+    .gap:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+    }
+
+    .result {
+      margin: 10px 0 0;
+      font-weight: 700;
+    }
+
+    .result:empty {
+      margin: 0;
+    }
+
+    .result.good {
+      color: var(--green-ink);
+    }
+
+    .result.mid {
+      color: #8a5a00;
+    }
+
+    .result.low {
+      color: var(--coral-ink);
+    }
+
+    .back {
+      margin: 18px 0 0;
+    }
+
+    .back a {
+      color: var(--muted);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back a:hover {
+      text-decoration: underline;
+    }
+
+    .lp-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .lp-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .lp-table th,
+    .lp-table td {
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .lp-table thead th {
+      border-top: 0;
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .lp-table a {
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .lp-table a:hover {
+      text-decoration: underline;
+    }
+
+    .lp-note {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--muted);
+    }
+
+    .lp-note p {
+      margin: 0 0 8px;
+    }
+
+    .lp-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .lp-note strong {
+      color: var(--ink);
+    }
+
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 920px) {
+      .intro,
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        min-height: 260px;
+      }
+
+      .visual svg {
+        min-height: 260px;
+      }
+
+      .module-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .merke {
+        position: static;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      .nav-links a {
+        padding: 7px 9px;
+      }
+
+      main {
+        padding-top: 22px;
+      }
+
+      main [id] {
+        scroll-margin-top: 130px;
+      }
+
+      .intro {
+        padding-top: 22px;
+      }
+
+      .quick-facts,
+      .module-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .module-card {
+        min-height: auto;
+      }
+
+      .task {
+        padding: 16px;
+      }
+
+      .item {
+        padding-right: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="page nav" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html" aria-label="Zur Startseite">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+            <path d="M5 4h10a3 3 0 0 1 3 3v13H7a2 2 0 0 1-2-2V4Z" stroke="#172033" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M8 8h6M8 12h7M8 16h4" stroke="#172033" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Deutsch Klasse 5</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Startseite</a>
+        <a href="#module">Module</a>
+        <a href="#lehrplan">Lehrplan</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="start">
+    <section class="page intro" aria-labelledby="seitentitel">
+      <div>
+        <p class="eyebrow">Deutsch · Mittelschule Unterhaching am Sportpark</p>
+        <h1 id="seitentitel">Grammatik in der 5. Klasse</h1>
+        <p class="lead">
+          Hier übst du alles, was du in der 5. Klasse über Wörter, Sätze und Satzzeichen lernst.
+          Lies zuerst den Merke-Kasten, löse dann die Aufgaben und prüfe sofort, ob alles stimmt.
+        </p>
+        <div class="quick-facts" aria-label="Kurze Infos zur Seite">
+          <div class="fact">
+            <strong>Klasse</strong>
+            <span>5. Jahrgangsstufe</span>
+          </div>
+          <div class="fact">
+            <strong>Übungen</strong>
+            <span><span data-zahl="module">11</span> Module, <span data-zahl="aufgaben">35</span> Aufgaben</span>
+          </div>
+          <div class="fact">
+            <strong>Grundlage</strong>
+            <span>LehrplanPLUS Mittelschule Bayern</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual" aria-label="Illustration: Ein Satz, dessen Wörter nach Wortarten eingefärbt sind">
+        <svg viewBox="0 0 420 360" role="img" aria-labelledby="visual-title visual-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="visual-title">Satz untersuchen</title>
+          <desc id="visual-desc">Ein Heft mit dem Satz „Der kleine Hund bellt.“ Jedes Wort ist farbig markiert und mit seiner Wortart beschriftet.</desc>
+          <rect width="420" height="360" fill="#FFF0ED"/>
+          <circle cx="368" cy="50" r="28" fill="#F2B84B"/>
+          <path d="M0 300 C80 270 150 292 230 270 C300 250 350 268 420 250 V360 H0 Z" fill="#FDE0DA"/>
+          <rect x="30" y="64" width="360" height="226" rx="8" fill="#FFFFFF" stroke="#172033" stroke-width="4"/>
+          <text x="52" y="112" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#172033">Satz untersuchen</text>
+          <rect x="50" y="138" width="62" height="44" rx="6" fill="#F2EFFF" stroke="#7B61D1" stroke-width="3"/>
+          <rect x="120" y="138" width="86" height="44" rx="6" fill="#E9F8EF" stroke="#2C9C69" stroke-width="3"/>
+          <rect x="214" y="138" width="74" height="44" rx="6" fill="#FFF0ED" stroke="#E86454" stroke-width="3"/>
+          <rect x="296" y="138" width="74" height="44" rx="6" fill="#EAF4FF" stroke="#2F6FED" stroke-width="3"/>
+          <g font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#172033" text-anchor="middle">
+            <text x="81" y="167">Der</text>
+            <text x="163" y="167">kleine</text>
+            <text x="251" y="167">Hund</text>
+            <text x="333" y="167">bellt.</text>
+          </g>
+          <g font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+            <text x="81" y="204" fill="#7B61D1">Artikel</text>
+            <text x="163" y="204" fill="#2C9C69">Adjektiv</text>
+            <text x="251" y="204" fill="#E86454">Nomen</text>
+            <text x="333" y="204" fill="#2F6FED">Verb</text>
+          </g>
+          <path d="M52 236 H368 M52 260 H300" stroke="#DFE6EE" stroke-width="3" stroke-linecap="round"/>
+          <g transform="translate(250 322) rotate(-20)">
+            <rect x="-14" y="-9" width="14" height="18" rx="3" fill="#E86454" stroke="#172033" stroke-width="3"/>
+            <rect x="0" y="-9" width="110" height="18" rx="2" fill="#F2B84B" stroke="#172033" stroke-width="3"/>
+            <path d="M110 -9 L132 0 L110 9 Z" fill="#FFF6D9" stroke="#172033" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M125 -3 L132 0 L125 3 Z" fill="#172033"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="page" id="module" aria-labelledby="module-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Übersicht</p>
+          <h2 id="module-title">Alle Module</h2>
+        </div>
+        <p>Wähle ein Modul aus. Mit „Prüfen“ siehst du sofort, was richtig ist. Mit „Neu starten“ kannst du jede Aufgabe wiederholen.</p>
+      </div>
+      <div class="progress">
+        <div class="bar" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="35" aria-valuenow="0" id="fortschritt">
+          <span id="fortschritt-balken"></span>
+        </div>
+        <span id="fortschritt-text">0 von 35 Aufgaben gelöst</span>
+      </div>
+      <noscript><p>Bitte JavaScript aktivieren, damit die Aufgaben angezeigt werden.</p></noscript>
+      <div class="module-list" id="modul-liste"></div>
+    </section>
+
+    <div id="modul-bereich"></div>
+
+    <section class="page" id="lehrplan" aria-labelledby="lehrplan-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Für Lehrkräfte</p>
+          <h2 id="lehrplan-title">Bezug zum LehrplanPLUS</h2>
+        </div>
+        <p>Mittelschule Bayern, Deutsch, Jahrgangsstufe 5, Lernbereich 4 „Sprachgebrauch und Sprache untersuchen und reflektieren“.</p>
+      </div>
+      <div class="lp-wrap">
+        <table class="lp-table">
+          <thead>
+            <tr><th>Modul</th><th>Kompetenzerwartung</th></tr>
+          </thead>
+          <tbody id="lehrplan-tabelle"></tbody>
+        </table>
+      </div>
+      <div class="lp-note">
+        <p><strong>Alle Kompetenzerwartungen aus 4.2 „Sprachliche Strukturen untersuchen und reflektieren“ sind abgedeckt.</strong></p>
+        <p>Nicht als Übung umgesetzt, weil sie eher in den Unterricht und in Schreibaufgaben gehören: aus 4.1 Fachbegriffe aus Sachfächern, Fremdwörter und die Wirkung von Wortarten in Medien; aus 4.3 Rechtschreibprinzipien und -strategien, Wörter mit Dehnungs-h und langem i ohne Dehnungszeichen, Abschreiben und Rechtschreibkartei.</p>
+        <p>Quelle: <a href="https://www.lehrplanplus.bayern.de/fachlehrplan/mittelschule/5/deutsch" target="_blank" rel="noopener">LehrplanPLUS Mittelschule, Deutsch 5</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page footer">
+    <span>Deutsch · Grammatik Klasse 5</span>
+    <span>Mittelschule Unterhaching am Sportpark</span>
+  </footer>
+
+  <script>
+    // Aufgabentypen:
+    //   auswahl:   Antwort anklicken. "optionen" gilt für alle Zeilen oder steht bei der einzelnen Zeile (wird dann gemischt).
+    //   markieren: Wörter anklicken. Richtige Wörter stehen zwischen *Sternchen*.
+    //   luecke:    Eintippen. ___ markiert die Lücke, "loesung" kann ein Text oder eine Liste erlaubter Antworten sein.
+    // [eckige Klammern] heben Textstellen gelb hervor.
+    const MODULE = [
+      {
+        id: "silben",
+        nr: 1,
+        bereich: "Wörter",
+        farbe: "coral",
+        titel: "Laut, Buchstabe, Silbe",
+        kurz: "Silben klatschen, Wörter richtig trennen und Laute von Buchstaben unterscheiden.",
+        lehrplan: "4.2 Wortbestandteile (Laut, Buchstabe, Silbe) unterscheiden · 4.3 Wörter nach Silben trennen, auch mit Ausnahmen (z. B. -ck)",
+        merke: `
+          <p><strong>Laute</strong> hörst du, <strong>Buchstaben</strong> siehst du. Manchmal stehen mehrere Buchstaben für einen Laut: <em>sch</em> in <em>Schule</em>, <em>ch</em> in <em>Buch</em>.</p>
+          <p><strong>Silben</strong> sind die Sprechteile eines Wortes. Klatsche mit: <em>Ba-na-ne</em>. Jede Silbe hat einen Vokal (a, e, i, o, u), einen Umlaut (ä, ö, ü) oder einen Zwielaut (au, ei, eu, äu, ai).</p>
+          <ul>
+            <li>Trenne nach Sprechsilben: <em>Ta-fel, Kis-sen, Fens-ter</em>.</li>
+            <li><em>ck</em>, <em>ch</em> und <em>sch</em> bleiben zusammen: <em>Ja-cke, la-chen, Wä-sche</em>.</li>
+            <li>Einen einzelnen Vokal am Wortanfang oder Wortende trennst du nicht ab: <em>Ofen</em>, <em>Igel</em>.</li>
+          </ul>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "Wie viele Silben hat das Wort?",
+            hinweis: "Sprich das Wort langsam und klatsche bei jeder Silbe.",
+            optionen: ["1", "2", "3", "4", "5"],
+            items: [
+              { text: "[Schokolade]", loesung: "4" },
+              { text: "[Fahrrad]", loesung: "2" },
+              { text: "[Elefant]", loesung: "3" },
+              { text: "[Brot]", loesung: "1" },
+              { text: "[Geburtstagskuchen]", loesung: "5" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Welche Trennung ist richtig?",
+            items: [
+              { text: "[Zucker]", optionen: ["Zu-cker", "Zuc-ker", "Zuck-er"], loesung: "Zu-cker" },
+              { text: "[Fenster]", optionen: ["Fens-ter", "Fen-ster", "Fe-nster"], loesung: "Fens-ter" },
+              { text: "[Tasche]", optionen: ["Ta-sche", "Tas-che", "Tasc-he"], loesung: "Ta-sche" },
+              { text: "[Mutter]", optionen: ["Mut-ter", "Mu-tter", "Mutt-er"], loesung: "Mut-ter" },
+              { text: "[Kiste]", optionen: ["Kis-te", "Ki-ste", "Kist-e"], loesung: "Kis-te" },
+              { text: "[Abend]", optionen: ["A-bend", "Ab-end", "gar nicht trennen"], loesung: "gar nicht trennen" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Stimmt die Aussage?",
+            optionen: ["richtig", "falsch"],
+            items: [
+              { text: "In [Schiff] stehen die Buchstaben s, c und h zusammen für einen einzigen Laut.", loesung: "richtig" },
+              { text: "Das Wort [Hund] hat zwei Silben.", loesung: "falsch" },
+              { text: "Jede Silbe enthält einen Vokal, Umlaut oder Zwielaut.", loesung: "richtig" },
+              { text: "Buchstaben hört man, Laute sieht man.", loesung: "falsch" },
+              { text: "Das Wort [Leiter] hat sechs Buchstaben.", loesung: "richtig" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "bedeutung",
+        nr: 2,
+        bereich: "Wörter",
+        farbe: "blue",
+        titel: "Wörter und ihre Bedeutung",
+        kurz: "Wortfelder und Wortfamilien, Standard- und Umgangssprache, sprachliche Bilder.",
+        lehrplan: "4.2 Wörter nach ihrer Bedeutung ordnen (z. B. Wortfelder) · 4.1 Standard- und Umgangssprache unterscheiden, einfache sprachliche Bilder verstehen",
+        merke: `
+          <p>Ein <strong>Wortfeld</strong> sind Wörter mit ähnlicher Bedeutung: <em>gehen – schlendern – rennen – schleichen</em>. Mit treffenden Wörtern wird dein Text genauer und spannender.</p>
+          <p>Eine <strong>Wortfamilie</strong> sind Wörter mit dem gleichen Wortstamm: <em>backen – Bäcker – Backofen</em>.</p>
+          <p><strong>Standardsprache</strong> verwendest du im Unterricht, in Briefen und mit Erwachsenen, die du nicht gut kennst. <strong>Umgangssprache</strong> sprichst du locker mit Freunden.</p>
+          <p><strong>Sprachliche Bilder</strong> meinen etwas anderes, als die Wörter sagen: <em>Mir fällt ein Stein vom Herzen.</em> heißt: Ich bin erleichtert.</p>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "Welches Wort passt nicht in das Wortfeld?",
+            items: [
+              { text: "Wortfeld [gehen]", optionen: ["schlendern", "rennen", "schleichen", "flüstern"], loesung: "flüstern" },
+              { text: "Wortfeld [sagen]", optionen: ["rufen", "antworten", "stottern", "springen"], loesung: "springen" },
+              { text: "Wortfeld [sehen]", optionen: ["beobachten", "starren", "hören", "glotzen"], loesung: "hören" },
+              { text: "Wortfeld [essen]", optionen: ["knabbern", "schlafen", "naschen", "schlemmen"], loesung: "schlafen" },
+              { text: "Wortfeld [lachen]", optionen: ["kichern", "weinen", "grinsen", "schmunzeln"], loesung: "weinen" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Wortfeld oder Wortfamilie?",
+            optionen: ["Wortfeld", "Wortfamilie"],
+            items: [
+              { text: "fahren – Fahrer – Fahrrad", loesung: "Wortfamilie" },
+              { text: "laufen – rennen – sprinten", loesung: "Wortfeld" },
+              { text: "spielen – Spieler – Spielplatz", loesung: "Wortfamilie" },
+              { text: "leise – still – ruhig", loesung: "Wortfeld" },
+              { text: "Schule – Schüler – Schulweg", loesung: "Wortfamilie" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Standardsprache oder Umgangssprache?",
+            optionen: ["Standardsprache", "Umgangssprache"],
+            items: [
+              { text: "Hast du Bock auf Kino?", loesung: "Umgangssprache" },
+              { text: "Ich habe heute leider keine Zeit.", loesung: "Standardsprache" },
+              { text: "Das ist voll krass!", loesung: "Umgangssprache" },
+              { text: "Könnten Sie mir bitte helfen?", loesung: "Standardsprache" },
+              { text: "Ich hab echt keinen Plan.", loesung: "Umgangssprache" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Was bedeutet das sprachliche Bild?",
+            items: [
+              { text: "Er hat [zwei linke Hände].", optionen: ["Er ist ungeschickt.", "Er trägt zwei Handschuhe.", "Er ist Linkshänder."], loesung: "Er ist ungeschickt." },
+              { text: "Sie hat [Tomaten auf den Augen].", optionen: ["Sie bemerkt etwas nicht.", "Sie hat rote Augen.", "Sie ist müde."], loesung: "Sie bemerkt etwas nicht." },
+              { text: "Ich verstehe [nur Bahnhof].", optionen: ["Ich verstehe nichts.", "Ich fahre gern Zug.", "Ich höre schlecht."], loesung: "Ich verstehe nichts." },
+              { text: "Er [bindet] mir [einen Bären auf].", optionen: ["Er lügt mich an.", "Er schenkt mir ein Stofftier.", "Er hilft mir."], loesung: "Er lügt mich an." }
+            ]
+          }
+        ]
+      },
+      {
+        id: "wortbildung",
+        nr: 3,
+        bereich: "Wörter",
+        farbe: "green",
+        titel: "Wörter bilden",
+        kurz: "Zusammengesetzte Nomen mit Grund- und Bestimmungswort, Vorsilben und Nachsilben.",
+        lehrplan: "4.2 Wortbildungsmöglichkeiten nutzen und benennen (Grund- und Bestimmungswort, Vor- und Nachsilbe)",
+        merke: `
+          <p>Aus zwei Nomen wird ein <strong>zusammengesetztes Nomen</strong>: <em>das Haus + die Tür = die Haustür</em>.</p>
+          <ul>
+            <li>Das <strong>Grundwort</strong> steht hinten. Es bestimmt den Artikel: <em>die</em> Tür → <em>die</em> Haustür.</li>
+            <li>Das <strong>Bestimmungswort</strong> steht vorne und sagt genauer, was gemeint ist: eine Tür am <em>Haus</em>.</li>
+          </ul>
+          <p><strong>Vorsilben</strong> stehen vor dem Wortstamm: <em>lesen → vorlesen</em>, <em>fair → unfair</em>.</p>
+          <p><strong>Nachsilben</strong> stehen hinter dem Wortstamm: <em>hoffen → Hoffnung</em>, <em>die Kraft → kräftig</em>.</p>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "Welcher Artikel gehört zum zusammengesetzten Nomen?",
+            hinweis: "Tipp: Das Grundwort (hinten) bestimmt den Artikel.",
+            optionen: ["der", "die", "das"],
+            items: [
+              { text: "___ Schulhof (die Schule + der Hof)", loesung: "der" },
+              { text: "___ Tischbein (der Tisch + das Bein)", loesung: "das" },
+              { text: "___ Fensterbank (das Fenster + die Bank)", loesung: "die" },
+              { text: "___ Sonnenschein (die Sonne + der Schein)", loesung: "der" },
+              { text: "___ Kinderzimmer (die Kinder + das Zimmer)", loesung: "das" }
+            ]
+          },
+          {
+            typ: "luecke",
+            auftrag: "Bilde ein zusammengesetztes Nomen.",
+            hinweis: "Nomen schreibst du groß.",
+            items: [
+              { text: "der Schnee + der Mann = der ___", loesung: "Schneemann" },
+              { text: "die Hand + der Schuh = der ___", loesung: "Handschuh" },
+              { text: "der Zahn + die Bürste = die ___", loesung: "Zahnbürste" },
+              { text: "der Apfel + der Baum = der ___", loesung: "Apfelbaum" },
+              { text: "die Schule + die Tasche = die ___", loesung: "Schultasche" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Welche Vorsilbe passt?",
+            items: [
+              { text: "Ich ___kaufe mein altes Fahrrad.", optionen: ["ver", "be", "zer"], loesung: "ver" },
+              { text: "Das Glas ist ___brochen.", optionen: ["zer", "be", "ent"], loesung: "zer" },
+              { text: "Diese Aufgabe ist ___lösbar.", optionen: ["un", "ver", "be"], loesung: "un" },
+              { text: "Bitte ___antworte meine Frage.", optionen: ["be", "ent", "zer"], loesung: "be" },
+              { text: "Der Dieb konnte ___kommen.", optionen: ["ent", "be", "zer"], loesung: "ent" }
+            ]
+          },
+          {
+            typ: "luecke",
+            auftrag: "Mit welcher Nachsilbe wird daraus ein Adjektiv?",
+            hinweis: "Nutze -lich, -ig oder -bar. Schreibe nur die Nachsilbe.",
+            items: [
+              { text: "der Freund → freund___", loesung: "lich" },
+              { text: "die Sonne → sonn___", loesung: "ig" },
+              { text: "essen → ess___", loesung: "bar" },
+              { text: "der Schmutz → schmutz___", loesung: "ig" },
+              { text: "das Glück → glück___", loesung: "lich" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "wortarten",
+        nr: 4,
+        bereich: "Wörter",
+        farbe: "violet",
+        titel: "Wortarten erkennen",
+        kurz: "Nomen, Verben, Adjektive, Artikel, Personal- und Possessivpronomen finden.",
+        lehrplan: "4.2 Wörter unterschiedlicher Wortarten erkennen und benennen (Nomen, Verben, Adjektive, Artikel, Personal- und Possessivpronomen)",
+        merke: `
+          <ul>
+            <li><strong>Nomen</strong>: Lebewesen, Dinge, Gefühle: <em>Hund, Tisch, Freude</em>. Du schreibst sie groß.</li>
+            <li><strong>Artikel</strong> begleiten Nomen: bestimmt <em>der, die, das</em>, unbestimmt <em>ein, eine</em>.</li>
+            <li><strong>Verben</strong> sagen, was jemand tut oder was geschieht: <em>lachen, regnen</em>. Sie verändern sich: <em>ich lache, du lachst</em>.</li>
+            <li><strong>Adjektive</strong> sagen, wie etwas ist: <em>groß, leise</em>. Du kannst sie steigern: <em>groß – größer – am größten</em>.</li>
+            <li><strong>Personalpronomen</strong> ersetzen Nomen: <em>ich, du, er, sie, es, wir, ihr, sie</em>.</li>
+            <li><strong>Possessivpronomen</strong> zeigen, wem etwas gehört: <em>mein, dein, sein, ihr, unser, euer</em>.</li>
+          </ul>`,
+        aufgaben: [
+          {
+            typ: "markieren",
+            auftrag: "Klicke alle Nomen an.",
+            items: [
+              "Der kleine *Hund* spielt im *Garten* mit einem roten *Ball*.",
+              "Am *Morgen* trinkt meine *Schwester* heißen *Tee*.",
+              "Die *Kinder* haben viel *Freude* an der *Klassenfahrt*."
+            ]
+          },
+          {
+            typ: "markieren",
+            auftrag: "Klicke alle Verben an.",
+            items: [
+              "Lisa *liest* ein Buch und *trinkt* Kakao.",
+              "Die Vögel *singen* und *fliegen* über das Feld.",
+              "Der Lehrer *erklärt* die Aufgabe."
+            ]
+          },
+          {
+            typ: "markieren",
+            auftrag: "Klicke alle Adjektive an.",
+            items: [
+              "Der *alte* Mann trägt einen *warmen* Mantel.",
+              "Die Suppe ist *heiß* und *lecker*.",
+              "Mein *bester* Freund hat ein *neues* Fahrrad."
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Welche Wortart ist das markierte Wort?",
+            optionen: ["Nomen", "Verb", "Adjektiv", "Artikel", "Personalpronomen", "Possessivpronomen"],
+            items: [
+              { text: "[Sie] geht nach Hause.", loesung: "Personalpronomen" },
+              { text: "Das ist [mein] Rucksack.", loesung: "Possessivpronomen" },
+              { text: "[Eine] Katze sitzt auf dem Dach.", loesung: "Artikel" },
+              { text: "Tom [schwimmt] sehr gut.", loesung: "Verb" },
+              { text: "Wir freuen uns auf [unsere] Ferien.", loesung: "Possessivpronomen" },
+              { text: "Der Film war [spannend].", loesung: "Adjektiv" },
+              { text: "Kannst [du] mir helfen?", loesung: "Personalpronomen" },
+              { text: "Die [Angst] war groß.", loesung: "Nomen" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "faelle",
+        nr: 5,
+        bereich: "Wörter",
+        farbe: "yellow",
+        titel: "Nomen und Adjektive beugen",
+        kurz: "Die vier Fälle, Einzahl und Mehrzahl und die richtige Endung beim Adjektiv.",
+        lehrplan: "4.2 Flexionsformen von Nomen und Adjektiven richtig verwenden",
+        merke: `
+          <p>Nomen haben ein <strong>Geschlecht</strong> (der, die, das) und eine <strong>Zahl</strong>: Einzahl (Singular) oder Mehrzahl (Plural). Im Satz stehen sie in einem von vier <strong>Fällen</strong>:</p>
+          <table class="mini">
+            <thead><tr><th>Fall</th><th>Frage</th><th>Beispiel</th></tr></thead>
+            <tbody>
+              <tr><td>1. Nominativ</td><td>Wer oder was?</td><td>der große Hund</td></tr>
+              <tr><td>2. Genitiv</td><td>Wessen?</td><td>des großen Hundes</td></tr>
+              <tr><td>3. Dativ</td><td>Wem?</td><td>dem großen Hund</td></tr>
+              <tr><td>4. Akkusativ</td><td>Wen oder was?</td><td>den großen Hund</td></tr>
+            </tbody>
+          </table>
+          <p>Das <strong>Adjektiv</strong> passt seine Endung an: <em>ein kleiner Ball – mit einem kleinen Ball</em>.</p>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "In welchem Fall steht der markierte Satzteil?",
+            hinweis: "Frage: Wer oder was? Wessen? Wem? Wen oder was?",
+            optionen: ["Nominativ", "Genitiv", "Dativ", "Akkusativ"],
+            items: [
+              { text: "[Der Hund] bellt laut.", loesung: "Nominativ" },
+              { text: "Ich gebe [dem Hund] einen Knochen.", loesung: "Dativ" },
+              { text: "Ich sehe [den Hund].", loesung: "Akkusativ" },
+              { text: "Das ist der Napf [des Hundes].", loesung: "Genitiv" },
+              { text: "Wir schenken [der Lehrerin] Blumen.", loesung: "Dativ" },
+              { text: "Mia liest [ein Buch].", loesung: "Akkusativ" },
+              { text: "[Mein Bruder] spielt Fußball.", loesung: "Nominativ" },
+              { text: "Das Fahrrad [meiner Schwester] ist rot.", loesung: "Genitiv" }
+            ]
+          },
+          {
+            typ: "luecke",
+            auftrag: "Bilde den Plural (Mehrzahl).",
+            items: [
+              { text: "der Hund → die ___", loesung: "Hunde" },
+              { text: "das Kind → die ___", loesung: "Kinder" },
+              { text: "die Maus → die ___", loesung: "Mäuse" },
+              { text: "der Apfel → die ___", loesung: "Äpfel" },
+              { text: "das Auto → die ___", loesung: "Autos" }
+            ]
+          },
+          {
+            typ: "luecke",
+            auftrag: "Setze die richtige Endung des Adjektivs ein.",
+            hinweis: "Schreibe nur die Endung, zum Beispiel: en",
+            items: [
+              { text: "Ich trage einen warm___ Pullover.", loesung: "en" },
+              { text: "Das ist ein lustig___ Film.", loesung: "er" },
+              { text: "Wir helfen der alt___ Frau.", loesung: "en" },
+              { text: "Sie hat ein neu___ Fahrrad.", loesung: "es" },
+              { text: "Der klein___ Junge lacht.", loesung: "e" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "verben",
+        nr: 6,
+        bereich: "Wörter",
+        farbe: "coral",
+        titel: "Verben und Zeitformen",
+        kurz: "Verben konjugieren und Präsens, Präteritum und Perfekt sicher verwenden.",
+        lehrplan: "4.2 Häufig gebrauchte Verben im Präsens, Präteritum und Perfekt konjugieren und funktional verwenden",
+        merke: `
+          <p>Die <strong>Grundform</strong> (Infinitiv) endet meist auf -en: <em>lachen</em>. Im Satz passt sich das Verb der Person an (<strong>Personalform</strong>):</p>
+          <table class="mini">
+            <tbody>
+              <tr><td>ich lache</td><td>wir lachen</td></tr>
+              <tr><td>du lachst</td><td>ihr lacht</td></tr>
+              <tr><td>er, sie, es lacht</td><td>sie lachen</td></tr>
+            </tbody>
+          </table>
+          <ul>
+            <li><strong>Präsens</strong>: jetzt oder immer. <em>Ich lache.</em></li>
+            <li><strong>Präteritum</strong>: Vergangenheit, oft in geschriebenen Geschichten. <em>Ich lachte. Ich rief.</em></li>
+            <li><strong>Perfekt</strong>: Vergangenheit, oft beim mündlichen Erzählen. Es wird mit <em>haben</em> oder <em>sein</em> gebildet: <em>Ich habe gelacht. Ich bin gerannt.</em></li>
+          </ul>
+          <p>Verben der Bewegung (rennen, fahren, springen) bilden das Perfekt meist mit <strong>sein</strong>.</p>`,
+        aufgaben: [
+          {
+            typ: "luecke",
+            auftrag: "Setze das Verb im Präsens ein.",
+            hinweis: "Manche Verben ändern dabei ihren Vokal: ich schlafe – du schläfst.",
+            items: [
+              { text: "Ich ___ Fußball. (spielen)", loesung: "spiele" },
+              { text: "Du ___ gern Musik. (hören)", loesung: "hörst" },
+              { text: "Er ___ ein Buch. (lesen)", loesung: "liest" },
+              { text: "Wir ___ zur Schule. (gehen)", loesung: "gehen" },
+              { text: "Ihr ___ sehr schnell. (laufen)", loesung: "lauft" },
+              { text: "Du ___ mit dem Bus. (fahren)", loesung: "fährst" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "In welcher Zeitform steht der Satz?",
+            optionen: ["Präsens", "Präteritum", "Perfekt"],
+            items: [
+              { text: "Ich spiele Fußball.", loesung: "Präsens" },
+              { text: "Wir gingen ins Kino.", loesung: "Präteritum" },
+              { text: "Sie hat ein Bild gemalt.", loesung: "Perfekt" },
+              { text: "Der Hund bellte laut.", loesung: "Präteritum" },
+              { text: "Ihr seid nach Hause gelaufen.", loesung: "Perfekt" },
+              { text: "Tim isst einen Apfel.", loesung: "Präsens" }
+            ]
+          },
+          {
+            typ: "luecke",
+            auftrag: "Setze den Satz ins Präteritum.",
+            items: [
+              { text: "Ich laufe nach Hause. → Ich ___ nach Hause.", loesung: "lief" },
+              { text: "Er singt ein Lied. → Er ___ ein Lied.", loesung: "sang" },
+              { text: "Wir spielen im Hof. → Wir ___ im Hof.", loesung: "spielten" },
+              { text: "Du schreibst einen Brief. → Du ___ einen Brief.", loesung: "schriebst" },
+              { text: "Sie kommt zu spät. → Sie ___ zu spät.", loesung: "kam" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Perfekt: haben oder sein?",
+            items: [
+              { text: "Ich ___ nach Hause gelaufen.", optionen: ["bin", "habe"], loesung: "bin" },
+              { text: "Wir ___ Pizza gegessen.", optionen: ["sind", "haben"], loesung: "haben" },
+              { text: "Er ___ ins Wasser gesprungen.", optionen: ["ist", "hat"], loesung: "ist" },
+              { text: "Du ___ ein Buch gelesen.", optionen: ["bist", "hast"], loesung: "hast" },
+              { text: "Ihr ___ lange geschlafen.", optionen: ["seid", "habt"], loesung: "habt" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "satzarten",
+        nr: 7,
+        bereich: "Sätze",
+        farbe: "blue",
+        titel: "Satzarten",
+        kurz: "Aussage-, Frage-, Aufforderungs- und Ausrufesätze mit dem richtigen Schlusszeichen.",
+        lehrplan: "4.2 Hauptsatzarten unterscheiden und situationsgerecht einsetzen · 4.3 Satzschlusszeichen",
+        merke: `
+          <ul>
+            <li><strong>Aussagesatz</strong>: teilt etwas mit. Am Ende steht ein Punkt. <em>Heute ist Montag.</em></li>
+            <li><strong>Fragesatz</strong>: fragt nach etwas. Am Ende steht ein Fragezeichen. <em>Wann kommst du? Kommst du mit?</em></li>
+            <li><strong>Aufforderungssatz</strong>: bittet oder fordert auf. Meist steht ein Ausrufezeichen. <em>Hilf mir bitte!</em></li>
+            <li><strong>Ausrufesatz</strong>: zeigt ein Gefühl wie Freude, Staunen oder Ärger. Am Ende steht ein Ausrufezeichen. <em>Das ist ja super!</em></li>
+          </ul>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "Welche Satzart ist das?",
+            optionen: ["Aussagesatz", "Fragesatz", "Aufforderungssatz", "Ausrufesatz"],
+            items: [
+              { text: "Morgen schreiben wir einen Test.", loesung: "Aussagesatz" },
+              { text: "Hast du deine Hausaufgaben gemacht?", loesung: "Fragesatz" },
+              { text: "Schließ bitte die Tür!", loesung: "Aufforderungssatz" },
+              { text: "Wie schön das ist!", loesung: "Ausrufesatz" },
+              { text: "Wo wohnst du?", loesung: "Fragesatz" },
+              { text: "Räum dein Zimmer auf!", loesung: "Aufforderungssatz" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Welches Satzschlusszeichen fehlt?",
+            optionen: [". (Punkt)", "? (Fragezeichen)", "! (Ausrufezeichen)"],
+            items: [
+              { text: "Wann beginnt die Pause___", loesung: "? (Fragezeichen)" },
+              { text: "Ich wohne in Unterhaching___", loesung: ". (Punkt)" },
+              { text: "Hilfe___", loesung: "! (Ausrufezeichen)" },
+              { text: "Kommst du morgen mit___", loesung: "? (Fragezeichen)" },
+              { text: "Der Bus kommt um acht Uhr___", loesung: ". (Punkt)" },
+              { text: "Das ist ja toll___", loesung: "! (Ausrufezeichen)" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "nebensaetze",
+        nr: 8,
+        bereich: "Sätze",
+        farbe: "green",
+        titel: "Haupt- und Nebensätze",
+        kurz: "Sätze mit Konjunktionen verbinden und das Komma richtig setzen.",
+        lehrplan: "4.2 Haupt- und Nebensätze unterscheiden, Sätze mit Konjunktionen verknüpfen · 4.3 Komma vor Konjunktionen",
+        merke: `
+          <ul>
+            <li><strong>Hauptsatz</strong>: kann allein stehen. Das gebeugte Verb steht an 2. Stelle. <em>Ich bleibe heute zu Hause.</em></li>
+            <li><strong>Nebensatz</strong>: kann nicht allein stehen. Er beginnt oft mit <em>weil, dass, wenn, als, ob, obwohl</em>. Das gebeugte Verb steht am Ende. <em>…, weil ich krank bin.</em></li>
+            <li>Zwischen Hauptsatz und Nebensatz steht ein <strong>Komma</strong>.</li>
+            <li>Hauptsätze verbindest du mit <em>und, oder, aber, denn, sondern</em>. Vor <em>aber, denn, sondern</em> steht immer ein Komma.</li>
+          </ul>
+          <p><em>dass</em> mit ss verbindet Sätze. <em>das</em> mit einem s ist ein Artikel oder Pronomen. Probe: <em>das</em> kannst du durch <em>dieses</em> oder <em>welches</em> ersetzen.</p>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "Hauptsatz oder Nebensatz?",
+            optionen: ["Hauptsatz", "Nebensatz"],
+            items: [
+              { text: "weil es regnet", loesung: "Nebensatz" },
+              { text: "Wir gehen ins Kino", loesung: "Hauptsatz" },
+              { text: "dass du kommst", loesung: "Nebensatz" },
+              { text: "Der Hund schläft", loesung: "Hauptsatz" },
+              { text: "wenn die Schule aus ist", loesung: "Nebensatz" },
+              { text: "obwohl ich müde bin", loesung: "Nebensatz" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Welche Konjunktion passt?",
+            items: [
+              { text: "Ich gehe heute nicht in die Schule, ___ ich Fieber habe.", optionen: ["weil", "aber", "oder"], loesung: "weil" },
+              { text: "Ich wollte kommen, ___ ich hatte keine Zeit.", optionen: ["aber", "weil", "dass"], loesung: "aber" },
+              { text: "Ich hoffe, ___ du morgen kommst.", optionen: ["dass", "das", "denn"], loesung: "dass" },
+              { text: "Möchtest du Saft ___ Wasser?", optionen: ["oder", "weil", "dass"], loesung: "oder" },
+              { text: "Er kommt nicht heute, ___ morgen.", optionen: ["sondern", "denn", "weil"], loesung: "sondern" },
+              { text: "Ich ziehe eine Jacke an, ___ es ist kalt.", optionen: ["denn", "dass", "ob"], loesung: "denn" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "In welchem Satz steht das Komma an der richtigen Stelle?",
+            items: [
+              { optionen: ["Ich komme nicht mit, weil ich lernen muss.", "Ich komme nicht mit weil, ich lernen muss.", "Ich komme, nicht mit weil ich lernen muss."], loesung: "Ich komme nicht mit, weil ich lernen muss." },
+              { optionen: ["Sie weiß, dass er kommt.", "Sie weiß dass, er kommt.", "Sie, weiß dass er kommt."], loesung: "Sie weiß, dass er kommt." },
+              { optionen: ["Ich wollte spielen, aber es regnete.", "Ich wollte spielen aber, es regnete.", "Ich wollte, spielen aber es regnete."], loesung: "Ich wollte spielen, aber es regnete." },
+              { optionen: ["Wenn ich groß bin, werde ich Pilotin.", "Wenn ich groß, bin werde ich Pilotin.", "Wenn ich groß bin werde, ich Pilotin."], loesung: "Wenn ich groß bin, werde ich Pilotin." }
+            ]
+          }
+        ]
+      },
+      {
+        id: "satzglieder",
+        nr: 9,
+        bereich: "Sätze",
+        farbe: "violet",
+        titel: "Satzglieder",
+        kurz: "Subjekt, Prädikat, Objekte und Adverbiale mit der Umstellprobe bestimmen.",
+        lehrplan: "4.2 Satzglieder bestimmen (Subjekt, Prädikat, Genitiv-, Dativ-, Akkusativobjekt, Lokal- und Temporaladverbiale) mit Umstell-, Ersatz-, Ergänzungs- und Weglassprobe",
+        merke: `
+          <p>Ein <strong>Satzglied</strong> kann aus einem oder mehreren Wörtern bestehen. Mit der <strong>Umstellprobe</strong> findest du es: Was beim Umstellen zusammenbleibt, ist ein Satzglied.</p>
+          <p><em>Der Hund | bellt | am Abend.</em><br><em>Am Abend | bellt | der Hund.</em></p>
+          <table class="mini">
+            <thead><tr><th>Satzglied</th><th>Frage</th></tr></thead>
+            <tbody>
+              <tr><td>Prädikat</td><td>Was tut jemand? Was geschieht? (gebeugtes Verb)</td></tr>
+              <tr><td>Subjekt</td><td>Wer oder was?</td></tr>
+              <tr><td>Akkusativobjekt</td><td>Wen oder was?</td></tr>
+              <tr><td>Dativobjekt</td><td>Wem?</td></tr>
+              <tr><td>Genitivobjekt</td><td>Wessen?</td></tr>
+              <tr><td>Lokaladverbiale</td><td>Wo? Wohin? Woher?</td></tr>
+              <tr><td>Temporaladverbiale</td><td>Wann? Wie lange? Seit wann?</td></tr>
+            </tbody>
+          </table>
+          <p>Weitere Proben: <strong>Ersatzprobe</strong> (<em>der Hund → er</em>), <strong>Weglassprobe</strong> (Was kann weg?), <strong>Ergänzungsprobe</strong> (Was kann ich dazuschreiben?).</p>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "Welches Satzglied ist markiert?",
+            optionen: ["Subjekt", "Prädikat", "Akkusativobjekt", "Dativobjekt", "Genitivobjekt", "Lokaladverbiale", "Temporaladverbiale"],
+            items: [
+              { text: "[Der Bäcker] backt frische Brötchen.", loesung: "Subjekt" },
+              { text: "Der Bäcker [backt] frische Brötchen.", loesung: "Prädikat" },
+              { text: "Der Bäcker backt [frische Brötchen].", loesung: "Akkusativobjekt" },
+              { text: "Lena schenkt [ihrer Oma] eine Blume.", loesung: "Dativobjekt" },
+              { text: "[Am Montag] schreiben wir eine Probe.", loesung: "Temporaladverbiale" },
+              { text: "Die Kinder spielen [auf dem Pausenhof].", loesung: "Lokaladverbiale" },
+              { text: "Die Polizei verdächtigt den Mann [des Diebstahls].", loesung: "Genitivobjekt" },
+              { text: "[Seit einer Stunde] warten wir auf den Bus.", loesung: "Temporaladverbiale" }
+            ]
+          },
+          {
+            typ: "markieren",
+            auftrag: "Klicke alle Wörter an, die zum Subjekt gehören.",
+            hinweis: "Frage: Wer oder was …? Das Subjekt steht nicht immer am Anfang.",
+            items: [
+              "*Meine* *kleine* *Schwester* malt ein Bild.",
+              "Heute spielt *unsere* *Klasse* gegen die 5b.",
+              "Im Garten blühen *die* *Rosen*.",
+              "Gestern hat *der* *Hausmeister* den Schulhof gefegt."
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Mit welcher Frage findest du das markierte Satzglied?",
+            optionen: ["Wer oder was?", "Wen oder was?", "Wem?", "Wessen?", "Wo? / Wohin?", "Wann?"],
+            items: [
+              { text: "Ich helfe [meinem Freund].", loesung: "Wem?" },
+              { text: "[Die Sonne] scheint.", loesung: "Wer oder was?" },
+              { text: "Wir besuchen [das Museum].", loesung: "Wen oder was?" },
+              { text: "[Morgen] fahren wir weg.", loesung: "Wann?" },
+              { text: "Der Ball liegt [unter dem Tisch].", loesung: "Wo? / Wohin?" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Umstellprobe: Aus wie vielen Satzgliedern besteht der Satz?",
+            optionen: ["2", "3", "4", "5", "6"],
+            items: [
+              { text: "Der Hund bellt.", loesung: "2" },
+              { text: "Tim liest ein Buch.", loesung: "3" },
+              { text: "Ich gebe meiner Schwester den Ball.", loesung: "4" },
+              { text: "Am Abend schenkt Mama mir eine Kette.", loesung: "5" },
+              { text: "Morgen besucht Oma uns in der Schule.", loesung: "5" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "zeichen",
+        nr: 10,
+        bereich: "Richtig schreiben",
+        farbe: "yellow",
+        titel: "Wörtliche Rede und Aufzählungen",
+        kurz: "Anführungszeichen, Doppelpunkt und Komma richtig setzen.",
+        lehrplan: "4.3 Satzzeichen bei wörtlicher Rede korrekt setzen, Komma bei Aufzählungen",
+        merke: `
+          <p>Die <strong>wörtliche Rede</strong> steht in Anführungszeichen: „…“</p>
+          <ul>
+            <li>Begleitsatz <strong>vorne</strong>: Doppelpunkt. <em>Tom sagt: „Ich komme mit.“</em></li>
+            <li>Begleitsatz <strong>hinten</strong>: Komma nach dem Anführungszeichen. Der Punkt fällt weg, ? und ! bleiben. <em>„Ich komme mit“, sagt Tom. „Kommst du?“, fragt Tom.</em></li>
+            <li>Begleitsatz <strong>in der Mitte</strong>: <em>„Ich komme“, sagt Tom, „gleich mit.“</em></li>
+          </ul>
+          <p><strong>Aufzählung</strong>: Zwischen die Teile setzt du ein Komma, aber nicht vor <em>und</em> oder <em>oder</em>. <em>Ich kaufe Äpfel, Birnen und Bananen.</em></p>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "Welcher Satz mit wörtlicher Rede ist richtig?",
+            items: [
+              { optionen: ["Lisa ruft: „Komm schnell!“", "Lisa ruft „Komm schnell!“", "Lisa ruft: Komm schnell!"], loesung: "Lisa ruft: „Komm schnell!“" },
+              { optionen: ["„Ich habe Hunger“, sagt Ben.", "„Ich habe Hunger.“ sagt Ben.", "„Ich habe Hunger“ sagt Ben."], loesung: "„Ich habe Hunger“, sagt Ben." },
+              { optionen: ["„Wo ist mein Heft?“, fragt Mia.", "„Wo ist mein Heft“, fragt Mia?", "„Wo ist mein Heft?“ fragt Mia."], loesung: "„Wo ist mein Heft?“, fragt Mia." },
+              { optionen: ["Der Lehrer sagt: „Packt eure Sachen ein.“", "Der Lehrer sagt, „Packt eure Sachen ein.“", "Der Lehrer sagt: „packt eure Sachen ein.“"], loesung: "Der Lehrer sagt: „Packt eure Sachen ein.“" },
+              { optionen: ["„Morgen“, sagt Oma, „backen wir einen Kuchen.“", "„Morgen“ sagt Oma, „backen wir einen Kuchen.“", "„Morgen, sagt Oma, backen wir einen Kuchen.“"], loesung: "„Morgen“, sagt Oma, „backen wir einen Kuchen.“" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "In welchem Satz stehen die Kommas bei der Aufzählung richtig?",
+            items: [
+              { optionen: ["Im Rucksack sind Hefte, Stifte und ein Lineal.", "Im Rucksack sind Hefte Stifte, und ein Lineal.", "Im Rucksack sind Hefte, Stifte, und ein Lineal."], loesung: "Im Rucksack sind Hefte, Stifte und ein Lineal." },
+              { optionen: ["Wir singen, tanzen und lachen.", "Wir singen tanzen, und lachen.", "Wir, singen, tanzen und lachen."], loesung: "Wir singen, tanzen und lachen." },
+              { optionen: ["Möchtest du Tee, Saft oder Wasser?", "Möchtest du Tee Saft, oder Wasser?", "Möchtest du, Tee, Saft oder Wasser?"], loesung: "Möchtest du Tee, Saft oder Wasser?" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "gross",
+        nr: 11,
+        bereich: "Richtig schreiben",
+        farbe: "coral",
+        titel: "Großschreibung erkennen",
+        kurz: "Mit Signalwörtern, Endungen und der Erweiterungsprobe Nomen sicher erkennen.",
+        lehrplan: "4.3 Großschreibung erkennen: Signalwörter (Artikel, Pronomen), Endungen -ung, -heit, -keit, -schaft, -nis, -tum, Erweiterungsprobe",
+        merke: `
+          <p><strong>Nomen schreibst du groß.</strong> So erkennst du sie:</p>
+          <ul>
+            <li><strong>Artikelprobe</strong>: Passt <em>der, die, das</em> oder <em>ein, eine</em> davor? <em>der Tisch</em></li>
+            <li><strong>Signalwörter</strong>: Artikel und Pronomen wie <em>mein, dein, unser</em> zeigen ein Nomen an. <em>mein Freund</em></li>
+            <li><strong>Erweiterungsprobe</strong>: Kannst du ein Adjektiv davorsetzen? <em>das Haus – das große Haus</em></li>
+            <li><strong>Endungen</strong>: Wörter auf <em>-ung, -heit, -keit, -schaft, -nis, -tum</em> sind immer Nomen. <em>die Zeitung, das Geheimnis</em></li>
+          </ul>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "Groß oder klein? Wähle die richtige Schreibung.",
+            items: [
+              { text: "Die ___ ist wichtig.", optionen: ["Freiheit", "freiheit"], loesung: "Freiheit" },
+              { text: "Wir ___ im Park.", optionen: ["spielen", "Spielen"], loesung: "spielen" },
+              { text: "Das ist eine gute ___.", optionen: ["Idee", "idee"], loesung: "Idee" },
+              { text: "Sie ist sehr ___.", optionen: ["freundlich", "Freundlich"], loesung: "freundlich" },
+              { text: "Die ___ ist kaputt.", optionen: ["Heizung", "heizung"], loesung: "Heizung" },
+              { text: "Mein ___ heißt Ali.", optionen: ["Bruder", "bruder"], loesung: "Bruder" }
+            ]
+          },
+          {
+            typ: "luecke",
+            auftrag: "Ergänze die Endung, die das Wort zum Nomen macht.",
+            hinweis: "Nutze -ung, -heit, -keit, -schaft, -nis oder -tum. Schreibe nur die Endung.",
+            items: [
+              { text: "die Wohn___", loesung: "ung" },
+              { text: "die Gesund___", loesung: "heit" },
+              { text: "die Sauber___", loesung: "keit" },
+              { text: "das Ergeb___", loesung: "nis" },
+              { text: "die Mann___", loesung: "schaft" },
+              { text: "der Reich___", loesung: "tum" }
+            ]
+          }
+        ]
+      }
+    ];
+
+    const alleAufgaben = [];
+
+    function esc(text) {
+      return String(text).replace(/[&<>"]/g, (z) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[z]);
+    }
+
+    function fmt(text) {
+      return esc(text).replace(/\[(.+?)\]/g, '<mark class="hl">$1</mark>');
+    }
+
+    function mischen(liste) {
+      const kopie = liste.slice();
+      for (let i = kopie.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [kopie[i], kopie[j]] = [kopie[j], kopie[i]];
+      }
+      return kopie;
+    }
+
+    function normal(text) {
+      return String(text).trim().replace(/\s+/g, " ").replace(/^-+/, "");
+    }
+
+    function loesungen(item) {
+      return Array.isArray(item.loesung) ? item.loesung : [item.loesung];
+    }
+
+    function zerlege(satz) {
+      return satz.split(" ").map((stueck) => {
+        const teile = stueck.replace(/\*/g, "").match(/^(.*?)([.,!?:;]*)$/);
+        return { wort: teile[1], zeichen: teile[2], ziel: stueck.startsWith("*") };
+      });
+    }
+
+    function itemHtml(aufgabe, item) {
+      const status = '<span class="status" aria-hidden="true"></span>';
+      if (aufgabe.typ === "auswahl") {
+        const optionen = item.optionen ? mischen(item.optionen) : aufgabe.optionen;
+        const lang = optionen.some((o) => o.length > 24);
+        const text = item.text ? `<div class="item-text">${fmt(item.text)}</div>` : "";
+        const knoepfe = optionen
+          .map((o) => `<button type="button" class="opt" aria-pressed="false" data-wert="${esc(o)}">${esc(o)}</button>`)
+          .join("");
+        return `${text}<div class="options${lang ? " stack" : ""}" role="group">${knoepfe}</div>${status}`;
+      }
+      if (aufgabe.typ === "markieren") {
+        const woerter = zerlege(item)
+          .map((t) => `<button type="button" class="word" aria-pressed="false">${esc(t.wort)}</button>${esc(t.zeichen)}`)
+          .join(" ");
+        return `<div class="sentence">${woerter}</div>${status}`;
+      }
+      const [vor, nach = ""] = item.text.split("___");
+      const breite = Math.max(5, ...loesungen(item).map((l) => l.length + 3));
+      const feld = `<input class="gap" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Lücke" style="width:${breite}ch">`;
+      return `<div class="item-text">${fmt(vor)}${feld}${fmt(nach)}</div>${status}`;
+    }
+
+    function zeichneItems(zustand) {
+      const { aufgabe, karte } = zustand;
+      karte.querySelector(".items").innerHTML = aufgabe.items
+        .map((item) => `<li class="item">${itemHtml(aufgabe, item)}</li>`)
+        .join("");
+      const ergebnis = karte.querySelector(".result");
+      ergebnis.textContent = "";
+      ergebnis.className = "result";
+      zustand.hilfe = false;
+    }
+
+    function leere(itemEl) {
+      itemEl.classList.remove("ok", "bad");
+      itemEl.querySelector(".status").textContent = "";
+      itemEl.querySelectorAll(".is-right, .is-wrong, .is-solution").forEach((el) => {
+        el.classList.remove("is-right", "is-wrong", "is-solution");
+      });
+    }
+
+    function pruefeItem(aufgabe, item, itemEl) {
+      if (aufgabe.typ === "auswahl") {
+        const gewaehlt = itemEl.querySelector('.opt[aria-pressed="true"]');
+        if (!gewaehlt) return false;
+        const ok = gewaehlt.dataset.wert === item.loesung;
+        gewaehlt.classList.add(ok ? "is-right" : "is-wrong");
+        return ok;
+      }
+      if (aufgabe.typ === "markieren") {
+        const ziele = zerlege(item);
+        let ok = true;
+        itemEl.querySelectorAll(".word").forEach((wort, i) => {
+          const an = wort.getAttribute("aria-pressed") === "true";
+          if (an) wort.classList.add(ziele[i].ziel ? "is-right" : "is-wrong");
+          if (an !== ziele[i].ziel) ok = false;
+        });
+        return ok;
+      }
+      const feld = itemEl.querySelector(".gap");
+      const ok = loesungen(item).some((l) => normal(l) === normal(feld.value));
+      feld.classList.add(ok ? "is-right" : "is-wrong");
+      return ok;
+    }
+
+    function pruefe(zustand) {
+      const { aufgabe, karte } = zustand;
+      const itemEls = karte.querySelectorAll(".item");
+      let richtig = 0;
+      itemEls.forEach((itemEl, i) => {
+        leere(itemEl);
+        const ok = pruefeItem(aufgabe, aufgabe.items[i], itemEl);
+        itemEl.classList.add(ok ? "ok" : "bad");
+        itemEl.querySelector(".status").textContent = ok ? "✓" : "✗";
+        if (ok) richtig++;
+      });
+      const gesamt = itemEls.length;
+      const ergebnis = karte.querySelector(".result");
+      if (richtig === gesamt && zustand.hilfe) {
+        ergebnis.textContent = "Richtig, aber mit der Lösung. Klicke auf „Neu starten“ und schaffe es allein.";
+        ergebnis.className = "result mid";
+      } else if (richtig === gesamt) {
+        ergebnis.textContent = `Alles richtig, stark! (${richtig} von ${gesamt})`;
+        ergebnis.className = "result good";
+        zustand.geloest = true;
+        aktualisiereFortschritt();
+      } else if (richtig * 2 >= gesamt) {
+        ergebnis.textContent = `${richtig} von ${gesamt} richtig. Schau dir die roten Stellen noch einmal an.`;
+        ergebnis.className = "result mid";
+      } else {
+        ergebnis.textContent = `${richtig} von ${gesamt} richtig. Lies den Merke-Kasten und versuche es noch einmal.`;
+        ergebnis.className = "result low";
+      }
+    }
+
+    function zeigeLoesung(zustand) {
+      const { aufgabe, karte } = zustand;
+      karte.querySelectorAll(".item").forEach((itemEl, i) => {
+        leere(itemEl);
+        const item = aufgabe.items[i];
+        if (aufgabe.typ === "auswahl") {
+          itemEl.querySelectorAll(".opt").forEach((o) => {
+            const richtig = o.dataset.wert === item.loesung;
+            o.setAttribute("aria-pressed", String(richtig));
+            o.classList.toggle("is-solution", richtig);
+          });
+        } else if (aufgabe.typ === "markieren") {
+          const ziele = zerlege(item);
+          itemEl.querySelectorAll(".word").forEach((wort, j) => {
+            wort.setAttribute("aria-pressed", String(ziele[j].ziel));
+            wort.classList.toggle("is-solution", ziele[j].ziel);
+          });
+        } else {
+          const feld = itemEl.querySelector(".gap");
+          feld.value = loesungen(item)[0];
+          feld.classList.add("is-solution");
+        }
+      });
+      zustand.hilfe = true;
+      const ergebnis = karte.querySelector(".result");
+      ergebnis.textContent = "Das ist die Lösung. Klicke auf „Neu starten“ und versuche es dann allein.";
+      ergebnis.className = "result";
+    }
+
+    function baueAufgabe(aufgabe, nummer) {
+      const karte = document.createElement("article");
+      karte.className = "task";
+      karte.innerHTML = `
+        <div class="task-head">
+          <span class="tag">Aufgabe ${nummer}</span>
+          <h3>${fmt(aufgabe.auftrag)}</h3>
+        </div>
+        ${aufgabe.hinweis ? `<p class="hint">${fmt(aufgabe.hinweis)}</p>` : ""}
+        <ol class="items"></ol>
+        <div class="task-actions">
+          <button type="button" class="btn" data-aktion="pruefen">Prüfen</button>
+          <button type="button" class="btn ghost" data-aktion="loesung">Lösung zeigen</button>
+          <button type="button" class="btn ghost" data-aktion="neu">Neu starten</button>
+        </div>
+        <p class="result" aria-live="polite"></p>`;
+      const zustand = { aufgabe, karte, geloest: false, hilfe: false };
+      zeichneItems(zustand);
+
+      karte.addEventListener("click", (e) => {
+        const option = e.target.closest(".opt");
+        if (option) {
+          option.parentElement.querySelectorAll(".opt").forEach((o) => o.setAttribute("aria-pressed", String(o === option)));
+          leere(option.closest(".item"));
+          return;
+        }
+        const wort = e.target.closest(".word");
+        if (wort) {
+          wort.setAttribute("aria-pressed", String(wort.getAttribute("aria-pressed") !== "true"));
+          leere(wort.closest(".item"));
+          return;
+        }
+        const knopf = e.target.closest("[data-aktion]");
+        if (!knopf) return;
+        if (knopf.dataset.aktion === "pruefen") pruefe(zustand);
+        if (knopf.dataset.aktion === "loesung") zeigeLoesung(zustand);
+        if (knopf.dataset.aktion === "neu") zeichneItems(zustand);
+      });
+      karte.addEventListener("input", (e) => {
+        if (e.target.classList.contains("gap")) leere(e.target.closest(".item"));
+      });
+      karte.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && e.target.classList.contains("gap")) pruefe(zustand);
+      });
+      return zustand;
+    }
+
+    function aktualisiereFortschritt() {
+      const gesamt = alleAufgaben.length;
+      const geloest = alleAufgaben.filter((z) => z.geloest).length;
+      const balken = document.getElementById("fortschritt");
+      balken.setAttribute("aria-valuemax", String(gesamt));
+      balken.setAttribute("aria-valuenow", String(geloest));
+      document.getElementById("fortschritt-balken").style.width = `${(geloest / gesamt) * 100}%`;
+      document.getElementById("fortschritt-text").textContent = `${geloest} von ${gesamt} Aufgaben gelöst`;
+      MODULE.forEach((m) => {
+        const fertig = alleAufgaben.filter((z) => z.modul === m.id).every((z) => z.geloest);
+        document.querySelectorAll(`[data-fertig="${m.id}"]`).forEach((el) => {
+          el.hidden = !fertig;
+        });
+      });
+    }
+
+    const modulListe = document.getElementById("modul-liste");
+    const modulBereich = document.getElementById("modul-bereich");
+
+    MODULE.forEach((m) => {
+      modulListe.insertAdjacentHTML("beforeend", `
+        <a class="module-card ${m.farbe}" href="#${m.id}">
+          <span class="tag">Modul ${m.nr} · ${esc(m.bereich)}</span>
+          <h3>${esc(m.titel)}</h3>
+          <p>${esc(m.kurz)}</p>
+          <span class="card-foot">
+            <span>${m.aufgaben.length} Aufgaben</span>
+            <span class="done" data-fertig="${m.id}" hidden>✓ geschafft</span>
+          </span>
+        </a>`);
+
+      const abschnitt = document.createElement("section");
+      abschnitt.className = "page module";
+      abschnitt.id = m.id;
+      abschnitt.style.setProperty("--accent", `var(--${m.farbe})`);
+      abschnitt.setAttribute("aria-labelledby", `${m.id}-titel`);
+      abschnitt.innerHTML = `
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Modul ${m.nr} · ${esc(m.bereich)}</p>
+            <h2 id="${m.id}-titel">${esc(m.titel)}</h2>
+          </div>
+          <p>${esc(m.kurz)}</p>
+        </div>
+        <div class="module-grid">
+          <aside class="merke" aria-label="Merke: ${esc(m.titel)}">
+            <h3>Merke</h3>
+            ${m.merke}
+          </aside>
+          <div class="tasks"></div>
+        </div>
+        <p class="back"><a href="#module">↑ Zur Modulübersicht</a></p>`;
+      const ablage = abschnitt.querySelector(".tasks");
+      m.aufgaben.forEach((aufgabe, i) => {
+        const zustand = baueAufgabe(aufgabe, `${m.nr}.${i + 1}`);
+        zustand.modul = m.id;
+        alleAufgaben.push(zustand);
+        ablage.appendChild(zustand.karte);
+      });
+      modulBereich.appendChild(abschnitt);
+    });
+
+    document.getElementById("lehrplan-tabelle").innerHTML = MODULE
+      .map((m) => `<tr><td><a href="#${m.id}">Modul ${m.nr}: ${esc(m.titel)}</a></td><td>${esc(m.lehrplan)}</td></tr>`)
+      .join("");
+
+    document.querySelectorAll('[data-zahl="module"]').forEach((el) => { el.textContent = MODULE.length; });
+    document.querySelectorAll('[data-zahl="aufgaben"]').forEach((el) => { el.textContent = alleAufgaben.length; });
+    aktualisiereFortschritt();
+
+    window.addEventListener("load", () => {
+      const ziel = location.hash && document.getElementById(location.hash.slice(1));
+      if (!ziel) return;
+      document.documentElement.style.scrollBehavior = "auto";
+      ziel.scrollIntoView();
+      document.documentElement.style.scrollBehavior = "";
+    });
+  </script>
+</body>
+</html>
