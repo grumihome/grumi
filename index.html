@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klasse 5 - Mittelschule Unterhaching am Sportpark</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5d6678;
+      --paper: #fffdf7;
+      --line: #dfe6ee;
+      --blue: #2f6fed;
+      --green: #2c9c69;
+      --coral: #e86454;
+      --yellow: #f2b84b;
+      --violet: #7b61d1;
+      --sky: #eaf4ff;
+      --mint: #e9f8ef;
+      --rose: #fff0ed;
+      --sun: #fff6d9;
+      --lavender: #f2efff;
+      --shadow: 0 14px 34px rgba(21, 32, 51, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(47, 111, 237, 0.10), transparent 26rem),
+        radial-gradient(circle at 92% 12%, rgba(232, 100, 84, 0.10), transparent 25rem),
+        var(--paper);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(223, 230, 238, 0.85);
+      background: rgba(255, 253, 247, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      display: grid;
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--yellow);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .brand span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ink);
+      background: #ffffff;
+      outline: 2px solid transparent;
+    }
+
+    main {
+      padding: 48px 0 64px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 32px;
+      align-items: center;
+      padding: 36px 0 46px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      color: var(--blue);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.1rem, 1.2rem + 2.2vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+      max-width: 720px;
+    }
+
+    .fact {
+      min-height: 86px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 8px 18px rgba(21, 32, 51, 0.06);
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .visual {
+      min-height: 320px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .visual svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 34px 0 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 1.25rem + 1vw, 2.35rem);
+    }
+
+    .section-head p {
+      max-width: 540px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .subject-card {
+      display: flex;
+      min-height: 330px;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 12px 28px rgba(21, 32, 51, 0.08);
+    }
+
+    .subject-card.deutsch {
+      border-top: 7px solid var(--coral);
+      background: linear-gradient(180deg, var(--rose), #ffffff 42%);
+    }
+
+    .subject-card.englisch {
+      border-top: 7px solid var(--blue);
+      background: linear-gradient(180deg, var(--sky), #ffffff 42%);
+    }
+
+    .subject-card.nt {
+      border-top: 7px solid var(--green);
+      background: linear-gradient(180deg, var(--mint), #ffffff 42%);
+    }
+
+    .subject-card.gpg {
+      border-top: 7px solid var(--violet);
+      background: linear-gradient(180deg, var(--lavender), #ffffff 42%);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .subject-card h3 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .tag {
+      align-self: start;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .subject-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .subject-card ul {
+      display: grid;
+      gap: 9px;
+      margin: auto 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .subject-card li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 8px;
+      align-items: start;
+      font-size: 0.96rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .week-band {
+      margin-top: 56px;
+      padding: 34px 0;
+      border-block: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .notice {
+      padding: 22px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--sun);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .notice h2,
+    .list-panel h2 {
+      margin: 0 0 12px;
+      font-size: 1.45rem;
+    }
+
+    .notice p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .list-panel {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .schedule {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .schedule li {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .schedule li:first-child {
+      border-top: 0;
+    }
+
+    .day {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 920px) {
+      .intro,
+      .week-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        min-height: 260px;
+      }
+
+      .visual svg {
+        min-height: 260px;
+      }
+
+      .subjects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      .nav-links a {
+        padding: 7px 9px;
+      }
+
+      main {
+        padding-top: 22px;
+      }
+
+      .intro {
+        padding-top: 22px;
+      }
+
+      .quick-facts,
+      .subjects {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .subject-card {
+        min-height: auto;
+      }
+
+      .schedule li {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="page nav" aria-label="Hauptnavigation">
+      <a class="brand" href="#start" aria-label="Zur Startseite">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+            <path d="M4 19V5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5V19Z" stroke="#172033" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M8 7h8M8 11h7" stroke="#172033" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Klasse 5 am Sportpark</span>
+      </a>
+      <div class="nav-links">
+        <a href="#faecher">Fächer</a>
+        <a href="#woche">Woche</a>
+        <a href="#info">Info</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="start">
+    <section class="page intro" aria-labelledby="seitentitel">
+      <div>
+        <p class="eyebrow">Mittelschule Unterhaching am Sportpark</p>
+        <h1 id="seitentitel">Willkommen in der 5. Klasse</h1>
+        <p class="lead">
+          Diese Muster-Homepage zeigt wichtige Fächer, kleine Lernideen und einen freundlichen
+          Wochenblick für Schülerinnen und Schüler der 5. Jahrgangsstufe.
+        </p>
+        <div class="quick-facts" aria-label="Kurze Klasseninfos">
+          <div class="fact">
+            <strong>Klasse</strong>
+            <span>5. Jahrgangsstufe</span>
+          </div>
+          <div class="fact">
+            <strong>Ort</strong>
+            <span>Unterhaching am Sportpark</span>
+          </div>
+          <div class="fact">
+            <strong>Ziel</strong>
+            <span>Lernen, Fragen stellen, zusammenhalten</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual" aria-label="Illustration mit Schule, Sportplatz und Lernsymbolen">
+        <svg viewBox="0 0 420 360" role="img" aria-labelledby="visual-title visual-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="visual-title">Schule am Sportpark</title>
+          <desc id="visual-desc">Eine freundliche Illustration mit Schulgebäude, Sportfeld, Buch und Sonne.</desc>
+          <rect width="420" height="360" fill="#EAF4FF"/>
+          <circle cx="344" cy="64" r="38" fill="#F2B84B"/>
+          <path d="M0 255 C72 220 112 242 173 214 C239 183 289 212 420 174 V360 H0 Z" fill="#D7F2E2"/>
+          <rect x="58" y="132" width="228" height="132" rx="8" fill="#FFFFFF" stroke="#172033" stroke-width="4"/>
+          <path d="M44 132 L172 64 L300 132 Z" fill="#E86454" stroke="#172033" stroke-width="4" stroke-linejoin="round"/>
+          <rect x="89" y="165" width="38" height="42" rx="4" fill="#EAF4FF" stroke="#172033" stroke-width="3"/>
+          <rect x="154" y="165" width="38" height="42" rx="4" fill="#EAF4FF" stroke="#172033" stroke-width="3"/>
+          <rect x="219" y="165" width="38" height="42" rx="4" fill="#EAF4FF" stroke="#172033" stroke-width="3"/>
+          <rect x="157" y="218" width="50" height="46" rx="6" fill="#F2B84B" stroke="#172033" stroke-width="3"/>
+          <path d="M162 241 H202" stroke="#172033" stroke-width="3" stroke-linecap="round"/>
+          <ellipse cx="318" cy="282" rx="73" ry="30" fill="#2C9C69" stroke="#172033" stroke-width="4"/>
+          <path d="M257 282 H379 M318 252 V312" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="318" cy="282" r="12" fill="#FFFFFF" stroke="#172033" stroke-width="3"/>
+          <rect x="42" y="272" width="94" height="54" rx="8" fill="#FFFFFF" stroke="#172033" stroke-width="4"/>
+          <path d="M54 286 C68 278 78 278 92 286 C106 278 116 278 128 286 V312 C115 306 104 306 92 314 C78 306 67 306 54 312 Z" fill="#7B61D1" stroke="#172033" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M92 286 V314" stroke="#172033" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="page" id="faecher" aria-labelledby="faecher-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Unsere Lernbereiche</p>
+          <h2 id="faecher-title">Fächer in Klasse 5</h2>
+        </div>
+        <p>Jede Karte zeigt ein Beispiel, woran die Klasse arbeiten kann.</p>
+      </div>
+
+      <div class="subjects">
+        <article class="subject-card deutsch">
+          <div class="card-top">
+            <div>
+              <span class="tag">Sprache</span>
+              <h3>Deutsch</h3>
+            </div>
+            <span class="icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M5 4h10a3 3 0 0 1 3 3v13H7a2 2 0 0 1-2-2V4Z" stroke="#172033" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M8 8h6M8 12h7M8 16h4" stroke="#E86454" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+          <p>Wir lesen Texte, schreiben eigene Geschichten und üben genaues Zuhören.</p>
+          <ul>
+            <li><span class="dot" style="color:#e86454"></span><span>Beispiel: Eine spannende Fortsetzung schreiben.</span></li>
+            <li><span class="dot" style="color:#e86454"></span><span>Training: Satzzeichen und Großschreibung.</span></li>
+            <li><span class="dot" style="color:#e86454"></span><span>Ziel: Sicher und kreativ mit Sprache umgehen.</span></li>
+          </ul>
+        </article>
+
+        <article class="subject-card englisch">
+          <div class="card-top">
+            <div>
+              <span class="tag">English</span>
+              <h3>Englisch</h3>
+            </div>
+            <span class="icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M4 5h10a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H9l-5 3v-3" stroke="#172033" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M8 9h7M8 13h5" stroke="#2F6FED" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+          <p>Wir sprechen über Alltag, Schule, Hobbys und lernen neue Wörter.</p>
+          <ul>
+            <li><span class="dot" style="color:#2f6fed"></span><span>Example: Introduce yourself in three sentences.</span></li>
+            <li><span class="dot" style="color:#2f6fed"></span><span>Training: Numbers, colours and classroom phrases.</span></li>
+            <li><span class="dot" style="color:#2f6fed"></span><span>Goal: Speak clearly and try bravely.</span></li>
+          </ul>
+        </article>
+
+        <article class="subject-card nt">
+          <div class="card-top">
+            <div>
+              <span class="tag">Forschen</span>
+              <h3>NT</h3>
+            </div>
+            <span class="icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M10 3v5l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17L14 8V3" stroke="#172033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 15h8" stroke="#2C9C69" stroke-width="2" stroke-linecap="round"/>
+                <path d="M9 3h6" stroke="#172033" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+          <p>In Natur und Technik beobachten, messen und erklären wir die Welt.</p>
+          <ul>
+            <li><span class="dot" style="color:#2c9c69"></span><span>Beispiel: Pflanzen genau betrachten und skizzieren.</span></li>
+            <li><span class="dot" style="color:#2c9c69"></span><span>Training: Vermutungen aufstellen und prüfen.</span></li>
+            <li><span class="dot" style="color:#2c9c69"></span><span>Ziel: Neugierig bleiben und sauber arbeiten.</span></li>
+          </ul>
+        </article>
+
+        <article class="subject-card gpg">
+          <div class="card-top">
+            <div>
+              <span class="tag">Welt</span>
+              <h3>GPG</h3>
+            </div>
+            <span class="icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="#172033" stroke-width="2"/>
+                <path d="M3 12h18M12 3c2 2.2 3 5.1 3 9s-1 6.8-3 9c-2-2.2-3-5.1-3-9s1-6.8 3-9Z" stroke="#7B61D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <p>In Geographie, Politik und Geschichte lernen wir Orte, Regeln und Zeit kennen.</p>
+          <ul>
+            <li><span class="dot" style="color:#7b61d1"></span><span>Beispiel: Eine einfache Karte von Bayern lesen.</span></li>
+            <li><span class="dot" style="color:#7b61d1"></span><span>Training: Was macht eine gute Klassengemeinschaft aus?</span></li>
+            <li><span class="dot" style="color:#7b61d1"></span><span>Ziel: Unsere Welt besser verstehen.</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="week-band" id="woche" aria-labelledby="woche-title">
+      <div class="page week-grid">
+        <div class="notice">
+          <h2 id="woche-title">Wochenmotto</h2>
+          <p>
+            Wir probieren aus, fragen nach und helfen einander. Jeder kleine Fortschritt zählt.
+          </p>
+        </div>
+        <div class="list-panel">
+          <h2>Wochenblick</h2>
+          <ul class="schedule">
+            <li><span class="day">Montag</span><span>Deutsch: Lesetext verstehen und wichtige Stellen markieren.</span></li>
+            <li><span class="day">Dienstag</span><span>Englisch: Vokabeln zu Schule und Hobbys sprechen.</span></li>
+            <li><span class="day">Mittwoch</span><span>NT: Kleines Beobachtungsprotokoll im Heft anlegen.</span></li>
+            <li><span class="day">Donnerstag</span><span>GPG: Karte lesen und Himmelsrichtungen wiederholen.</span></li>
+            <li><span class="day">Freitag</span><span>Klassenzeit: Rückblick, Fragen und gemeinsame Ziele.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="info" aria-labelledby="info-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Miteinander</p>
+          <h2 id="info-title">Gut lernen in Klasse 5</h2>
+        </div>
+        <p>Eine kurze Orientierung für einen ruhigen und freundlichen Schulalltag.</p>
+      </div>
+      <div class="subjects">
+        <article class="subject-card">
+          <div class="card-top">
+            <div>
+              <span class="tag">Ordnung</span>
+              <h3>Material</h3>
+            </div>
+          </div>
+          <p>Hefte, Stifte und Hausaufgabenheft sind jeden Tag griffbereit.</p>
+        </article>
+        <article class="subject-card">
+          <div class="card-top">
+            <div>
+              <span class="tag">Fairness</span>
+              <h3>Gemeinschaft</h3>
+            </div>
+          </div>
+          <p>Wir sprechen freundlich, hoeren zu und lassen andere ausreden.</p>
+        </article>
+        <article class="subject-card">
+          <div class="card-top">
+            <div>
+              <span class="tag">Mut</span>
+              <h3>Fragen</h3>
+            </div>
+          </div>
+          <p>Wer fragt, lernt. Fehler sind erlaubt und helfen beim Besserwerden.</p>
+        </article>
+        <article class="subject-card">
+          <div class="card-top">
+            <div>
+              <span class="tag">Pause</span>
+              <h3>Bewegung</h3>
+            </div>
+          </div>
+          <p>Kurze Pausen, frische Luft und Bewegung machen den Kopf wieder frei.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page footer">
+    <span>Mustervorlage für Klasse 5</span>
+    <span>Mittelschule Unterhaching am Sportpark</span>
+  </footer>
+</body>
+</html>
