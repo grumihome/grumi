@@ -697,6 +697,79 @@
       color: var(--coral-ink);
     }
 
+    .btn:disabled {
+      opacity: 0.6;
+      box-shadow: none;
+      cursor: progress;
+    }
+
+    .ki-label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 800;
+    }
+
+    .ki-input {
+      display: block;
+      width: 100%;
+      min-height: 150px;
+      padding: 12px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--ink);
+      font: inherit;
+      line-height: 1.6;
+      resize: vertical;
+    }
+
+    .ki-input:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+    }
+
+    .ki-count {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: right;
+    }
+
+    .ki-feedback {
+      margin-top: 14px;
+      padding: 16px 18px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--sky);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .ki-feedback strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .ki-feedback p {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    .ki-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .ki-badge {
+      margin-left: 6px;
+      padding: 1px 7px;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      background: var(--sun);
+      color: var(--ink);
+      font-size: 0.78rem;
+    }
+
     .back {
       margin: 18px 0 0;
     }
@@ -894,7 +967,7 @@
           </div>
           <div class="fact">
             <strong>Übungen</strong>
-            <span><span data-zahl="module">11</span> Module, <span data-zahl="aufgaben">35</span> Aufgaben</span>
+            <span><span data-zahl="module">11</span> Module, <span data-zahl="aufgaben">35</span> Aufgaben + <span data-zahl="ki">1</span> KI-Aufgabe</span>
           </div>
           <div class="fact">
             <strong>Grundlage</strong>
@@ -993,6 +1066,7 @@
     //   auswahl:   Antwort anklicken. "optionen" gilt für alle Zeilen oder steht bei der einzelnen Zeile (wird dann gemischt).
     //   markieren: Wörter anklicken. Richtige Wörter stehen zwischen *Sternchen*.
     //   luecke:    Eintippen. ___ markiert die Lücke, "loesung" kann ein Text oder eine Liste erlaubter Antworten sein.
+    //   ki:        Offene Schreibaufgabe. Der Text geht an das KI-Backend bei Render, die KI achtet auf "kriterien".
     // [eckige Klammern] heben Textstellen gelb hervor.
     const MODULE = [
       {
@@ -1374,6 +1448,12 @@
               { text: "Du ___ ein Buch gelesen.", optionen: ["bist", "hast"], loesung: "hast" },
               { text: "Ihr ___ lange geschlafen.", optionen: ["seid", "habt"], loesung: "habt" }
             ]
+          },
+          {
+            typ: "ki",
+            auftrag: "Schreibe eine kurze Geschichte mit 3 bis 5 Sätzen: Ein Hund verläuft sich im Park. Schreibe im Präteritum.",
+            hinweis: "Eine KI liest deinen Text und gibt dir Tipps. Schreibe keine echten Namen und nichts Persönliches über dich.",
+            kriterien: "Stehen die Verben im Präteritum (z. B. lief, sah, bellte)? Sind Satzanfänge und Nomen großgeschrieben? Hat jeder Satz ein Satzschlusszeichen?"
           }
         ]
       },
@@ -1637,6 +1717,10 @@
       }
     ];
 
+    // Adresse des KI-Backends bei Render (Dashboard → Dienst „grumi“ → Adresse oben), z. B. "https://grumi-ab12.onrender.com".
+    const KI_SERVER = "";
+    const KI_MAX_ZEICHEN = 700;
+
     const alleAufgaben = [];
 
     function esc(text) {
@@ -1843,6 +1927,119 @@
       return zustand;
     }
 
+    function kiNachricht(aufgabe, text) {
+      return [
+        "Du bist eine freundliche Deutschlehrkraft an einer bayerischen Mittelschule und gibst einem Kind aus der 5. Klasse Rückmeldung zu seinem Text.",
+        `Aufgabe: ${aufgabe.auftrag}`,
+        `Darauf achtest du: ${aufgabe.kriterien}`,
+        `Text des Kindes:\n"""\n${text}\n"""`,
+        "Antworte in einfachem Deutsch mit höchstens 120 Wörtern, ohne Markdown und ohne Sternchen. Lobe zuerst etwas Konkretes. Nenne dann höchstens zwei Stellen, die noch nicht stimmen, und erkläre kurz die Regel. Schreibe den Text nicht komplett neu. Schließe mit einem Tipp für den nächsten Versuch.",
+        "Hat der Text nichts mit der Aufgabe zu tun oder ist er unangemessen, bitte freundlich darum, die Aufgabe zu bearbeiten."
+      ].join("\n\n");
+    }
+
+    async function frageKi(nachricht) {
+      if (!KI_SERVER) {
+        throw new Error("Die KI ist noch nicht eingerichtet. Frag deine Lehrkraft.");
+      }
+      const abbruch = new AbortController();
+      const timer = setTimeout(() => abbruch.abort(), 90000);
+      try {
+        const antwort = await fetch(`${KI_SERVER}/api/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: nachricht }),
+          signal: abbruch.signal
+        });
+        const daten = await antwort.json().catch(() => ({}));
+        if (!antwort.ok || !daten.answer) {
+          throw new Error(daten.error || "Die KI hat keine Antwort geschickt. Versuche es später noch einmal.");
+        }
+        return daten.answer;
+      } catch (fehler) {
+        if (fehler.name === "AbortError") {
+          throw new Error("Die KI hat zu lange gebraucht. Versuche es noch einmal.");
+        }
+        if (fehler instanceof TypeError) {
+          throw new Error("Die KI ist gerade nicht erreichbar. Versuche es später noch einmal.");
+        }
+        throw fehler;
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    function baueKiAufgabe(aufgabe, nummer) {
+      const karte = document.createElement("article");
+      karte.className = "task";
+      const feldId = `ki-${nummer.replace(".", "-")}`;
+      karte.innerHTML = `
+        <div class="task-head">
+          <span class="tag">Aufgabe ${nummer} · KI-Feedback</span>
+          <h3>${fmt(aufgabe.auftrag)}</h3>
+        </div>
+        ${aufgabe.hinweis ? `<p class="hint">${fmt(aufgabe.hinweis)}</p>` : ""}
+        <label class="ki-label" for="${feldId}">Dein Text</label>
+        <textarea class="ki-input" id="${feldId}" maxlength="${KI_MAX_ZEICHEN}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
+        <p class="ki-count">0 / ${KI_MAX_ZEICHEN} Zeichen</p>
+        <div class="task-actions">
+          <button type="button" class="btn" data-aktion="ki">KI-Feedback holen</button>
+          <button type="button" class="btn ghost" data-aktion="neu">Neu starten</button>
+        </div>
+        <p class="result" aria-live="polite"></p>
+        <div class="ki-feedback" hidden>
+          <strong>Rückmeldung der KI</strong>
+          <p></p>
+        </div>
+        <p class="ki-note">Die KI kann sich irren. Frag im Zweifel deine Lehrkraft.</p>`;
+      const feld = karte.querySelector(".ki-input");
+      const zaehler = karte.querySelector(".ki-count");
+      const ergebnis = karte.querySelector(".result");
+      const kasten = karte.querySelector(".ki-feedback");
+      const knopf = karte.querySelector('[data-aktion="ki"]');
+
+      const zeigeZaehler = () => {
+        zaehler.textContent = `${feld.value.length} / ${KI_MAX_ZEICHEN} Zeichen`;
+      };
+      feld.addEventListener("input", zeigeZaehler);
+
+      karte.querySelector('[data-aktion="neu"]').addEventListener("click", () => {
+        feld.value = "";
+        zeigeZaehler();
+        ergebnis.textContent = "";
+        ergebnis.className = "result";
+        kasten.hidden = true;
+      });
+
+      knopf.addEventListener("click", async () => {
+        const text = feld.value.trim();
+        kasten.hidden = true;
+        if (text.length < 20) {
+          ergebnis.textContent = "Schreibe zuerst ein paar Sätze.";
+          ergebnis.className = "result low";
+          return;
+        }
+        knopf.disabled = true;
+        ergebnis.textContent = "Die KI liest deinen Text …";
+        ergebnis.className = "result";
+        const warten = setTimeout(() => {
+          ergebnis.textContent = "Der KI-Server wacht gerade auf. Beim ersten Mal kann das bis zu einer Minute dauern …";
+        }, 6000);
+        try {
+          kasten.querySelector("p").textContent = await frageKi(kiNachricht(aufgabe, text));
+          kasten.hidden = false;
+          ergebnis.textContent = "";
+        } catch (fehler) {
+          ergebnis.textContent = fehler.message;
+          ergebnis.className = "result low";
+        } finally {
+          clearTimeout(warten);
+          knopf.disabled = false;
+        }
+      });
+      return karte;
+    }
+
     function aktualisiereFortschritt() {
       const gesamt = alleAufgaben.length;
       const geloest = alleAufgaben.filter((z) => z.geloest).length;
@@ -1863,13 +2060,15 @@
     const modulBereich = document.getElementById("modul-bereich");
 
     MODULE.forEach((m) => {
+      const uebungen = m.aufgaben.filter((a) => a.typ !== "ki").length;
+      const mitKi = uebungen < m.aufgaben.length;
       modulListe.insertAdjacentHTML("beforeend", `
         <a class="module-card ${m.farbe}" href="#${m.id}">
           <span class="tag">Modul ${m.nr} · ${esc(m.bereich)}</span>
           <h3>${esc(m.titel)}</h3>
           <p>${esc(m.kurz)}</p>
           <span class="card-foot">
-            <span>${m.aufgaben.length} Aufgaben</span>
+            <span>${uebungen} Aufgaben${mitKi ? '<span class="ki-badge">+ KI</span>' : ""}</span>
             <span class="done" data-fertig="${m.id}" hidden>✓ geschafft</span>
           </span>
         </a>`);
@@ -1897,7 +2096,12 @@
         <p class="back"><a href="#module">↑ Zur Modulübersicht</a></p>`;
       const ablage = abschnitt.querySelector(".tasks");
       m.aufgaben.forEach((aufgabe, i) => {
-        const zustand = baueAufgabe(aufgabe, `${m.nr}.${i + 1}`);
+        const nummer = `${m.nr}.${i + 1}`;
+        if (aufgabe.typ === "ki") {
+          ablage.appendChild(baueKiAufgabe(aufgabe, nummer));
+          return;
+        }
+        const zustand = baueAufgabe(aufgabe, nummer);
         zustand.modul = m.id;
         alleAufgaben.push(zustand);
         ablage.appendChild(zustand.karte);
@@ -1911,6 +2115,9 @@
 
     document.querySelectorAll('[data-zahl="module"]').forEach((el) => { el.textContent = MODULE.length; });
     document.querySelectorAll('[data-zahl="aufgaben"]').forEach((el) => { el.textContent = alleAufgaben.length; });
+    document.querySelectorAll('[data-zahl="ki"]').forEach((el) => {
+      el.textContent = MODULE.flatMap((m) => m.aufgaben).filter((a) => a.typ === "ki").length;
+    });
     aktualisiereFortschritt();
 
     window.addEventListener("load", () => {
