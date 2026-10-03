@@ -967,7 +967,7 @@
           </div>
           <div class="fact">
             <strong>Übungen</strong>
-            <span><span data-zahl="module">11</span> Module, <span data-zahl="aufgaben">35</span> Aufgaben + <span data-zahl="ki">1</span> KI-Aufgabe</span>
+            <span><span data-zahl="module">12</span> Module, <span data-zahl="aufgaben">42</span> Aufgaben + <span data-zahl="ki">1</span> KI-Aufgabe</span>
           </div>
           <div class="fact">
             <strong>Grundlage</strong>
@@ -1021,10 +1021,10 @@
         <p>Wähle ein Modul aus. Mit „Prüfen“ siehst du sofort, was richtig ist. Mit „Neu starten“ kannst du jede Aufgabe wiederholen.</p>
       </div>
       <div class="progress">
-        <div class="bar" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="35" aria-valuenow="0" id="fortschritt">
+        <div class="bar" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="42" aria-valuenow="0" id="fortschritt">
           <span id="fortschritt-balken"></span>
         </div>
-        <span id="fortschritt-text">0 von 35 Aufgaben gelöst</span>
+        <span id="fortschritt-text">0 von 42 Aufgaben gelöst</span>
       </div>
       <noscript><p>Bitte JavaScript aktivieren, damit die Aufgaben angezeigt werden.</p></noscript>
       <div class="module-list" id="modul-liste"></div>
@@ -1050,7 +1050,7 @@
       </div>
       <div class="lp-note">
         <p><strong>Alle Kompetenzerwartungen aus 4.2 „Sprachliche Strukturen untersuchen und reflektieren“ sind abgedeckt.</strong></p>
-        <p>Nicht als Übung umgesetzt, weil sie eher in den Unterricht und in Schreibaufgaben gehören: aus 4.1 Fachbegriffe aus Sachfächern, Fremdwörter und die Wirkung von Wortarten in Medien; aus 4.3 Rechtschreibprinzipien und -strategien, Wörter mit Dehnungs-h und langem i ohne Dehnungszeichen, Abschreiben und Rechtschreibkartei.</p>
+        <p>Nicht als Übung umgesetzt, weil sie eher in den Unterricht und in Schreibaufgaben gehören: aus 4.1 Fachbegriffe aus Sachfächern, Fremdwörter und die Wirkung von Wortarten in Medien; aus 4.3 das Abschreiben von Vorlagen und die Arbeit mit der Rechtschreibkartei (in Modul 12 als Tipp erwähnt).</p>
         <p>Quelle: <a href="https://www.lehrplanplus.bayern.de/fachlehrplan/mittelschule/5/deutsch" target="_blank" rel="noopener">LehrplanPLUS Mittelschule, Deutsch 5</a></p>
       </div>
     </section>
@@ -1711,6 +1711,132 @@
               { text: "das Ergeb___", loesung: "nis" },
               { text: "die Mann___", loesung: "schaft" },
               { text: "der Reich___", loesung: "tum" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "strategien",
+        nr: 12,
+        bereich: "Richtig schreiben",
+        farbe: "blue",
+        titel: "Rechtschreibstrategien",
+        kurz: "Mitsprechen, Verlängern, Ableiten, Merken und Nachschlagen: So findest du die richtige Schreibung.",
+        lehrplan: "4.3 Rechtschreibprinzipien anwenden (silbisch, morphologisch, silbentrennendes h), Wörter mit Besonderheiten (i ohne Dehnungszeichen, Dehnungs-h, Doppelvokal), Strategien und Hilfsmittel (Wörterbuch) zum Finden und Verbessern eigener Fehler",
+        merke: `
+          <p>Wenn du unsicher bist, hilft dir eine <strong>Strategie</strong>:</p>
+          <table class="mini">
+            <thead><tr><th>Strategie</th><th>So gehst du vor</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Mitsprechen</strong></td><td>Sprich das Wort deutlich in Silben: <em>To-ma-te</em>.</td></tr>
+              <tr><td><strong>Verlängern</strong></td><td>d oder t? g oder k? b oder p? Ein oder zwei Mitlaute? Verlängere das Wort: <em>Hund → Hun-de</em>, <em>Ball → Bäl-le</em>.</td></tr>
+              <tr><td><strong>Ableiten</strong></td><td>ä oder e? äu oder eu? Suche ein verwandtes Wort mit a oder au: <em>Hände → Hand</em>, <em>Häuser → Haus</em>.</td></tr>
+              <tr><td><strong>Merken</strong></td><td>Manche Wörter folgen keiner Regel: <em>Tiger, Kino, fahren, Boot</em>. Lerne sie als Merkwörter.</td></tr>
+              <tr><td><strong>Nachschlagen</strong></td><td>Suche im Wörterbuch die Grundform: <em>lief → laufen</em>.</td></tr>
+            </tbody>
+          </table>
+          <p><strong>Silbentrennendes h:</strong> Hörst du beim Verlängern ein h zwischen zwei Silben, schreibst du es immer: <em>ge-hen → er geht</em>.</p>
+          <p><strong>Rechtschreibkartei:</strong> Schreibe deine Fehlerwörter richtig auf Karteikarten und übe sie jeden Tag.</p>`,
+        aufgaben: [
+          {
+            typ: "auswahl",
+            auftrag: "Welche Strategie hilft dir?",
+            optionen: ["Mitsprechen", "Verlängern", "Ableiten", "Merken"],
+            items: [
+              { text: "Schreibt man [Hund] am Ende mit d oder t?", loesung: "Verlängern" },
+              { text: "Schreibt man [Bäume] mit ä oder e?", loesung: "Ableiten" },
+              { text: "[Banane]: Jeder Laut ist deutlich zu hören.", loesung: "Mitsprechen" },
+              { text: "Schreibt man [Vogel] mit V oder F?", loesung: "Merken" },
+              { text: "Schreibt man [Zug] am Ende mit g oder k?", loesung: "Verlängern" },
+              { text: "Schreibt man [Räuber] mit äu oder eu?", loesung: "Ableiten" },
+              { text: "Schreibt man [Tiger] mit i oder ie?", loesung: "Merken" },
+              { text: "[Schokolade]: Sprich das Wort in Silben.", loesung: "Mitsprechen" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Verlängere das Wort. Welcher Buchstabe fehlt?",
+            hinweis: "Bilde die Mehrzahl oder die Grundform. Dann hörst du den Buchstaben deutlich.",
+            items: [
+              { text: "der Hun___", optionen: ["d", "t"], loesung: "d" },
+              { text: "der Ber___", optionen: ["g", "k"], loesung: "g" },
+              { text: "der Kor___", optionen: ["b", "p"], loesung: "b" },
+              { text: "das Bro___", optionen: ["d", "t"], loesung: "t" },
+              { text: "der Zwer___", optionen: ["g", "k"], loesung: "g" },
+              { text: "der Ba___", optionen: ["l", "ll"], loesung: "ll" },
+              { text: "das Schi___", optionen: ["f", "ff"], loesung: "ff" },
+              { text: "er le___t", optionen: ["b", "p"], loesung: "b" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Leite ab: ä oder e, äu oder eu?",
+            hinweis: "Gibt es ein verwandtes Wort mit a oder au? Dann schreibst du ä oder äu.",
+            items: [
+              { text: "die H___nde", optionen: ["ä", "e"], loesung: "ä" },
+              { text: "die H___ser", optionen: ["äu", "eu"], loesung: "äu" },
+              { text: "das F___ld", optionen: ["ä", "e"], loesung: "e" },
+              { text: "die L___te", optionen: ["äu", "eu"], loesung: "eu" },
+              { text: "er f___hrt Rad", optionen: ["ä", "e"], loesung: "ä" },
+              { text: "die R___ber", optionen: ["äu", "eu"], loesung: "äu" },
+              { text: "die Gl___ser", optionen: ["ä", "e"], loesung: "ä" },
+              { text: "h___te", optionen: ["äu", "eu"], loesung: "eu" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Silbentrennendes h: Fehlt ein h?",
+            hinweis: "Verlängere und sprich in Silben: ge-hen. Hörst du zwischen den Silben ein h, schreibst du es auch in „er geht“.",
+            optionen: ["h", "kein h"],
+            items: [
+              { text: "er ge___t zur Schule", loesung: "h" },
+              { text: "die Kü___e auf der Weide", loesung: "h" },
+              { text: "er bau___t ein Haus", loesung: "kein h" },
+              { text: "sie se___en einen Film", loesung: "h" },
+              { text: "wir freu___en uns", loesung: "kein h" },
+              { text: "sie zie___t am Seil", loesung: "h" },
+              { text: "der Schu___ ist neu", loesung: "h" },
+              { text: "der Vogel schrei___t", loesung: "kein h" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Merkwörter: Welche Schreibung ist richtig?",
+            hinweis: "Diese Wörter folgen keiner Regel. Schreibe sie in deine Rechtschreibkartei.",
+            items: [
+              { optionen: ["der Tiger", "der Tieger"], loesung: "der Tiger" },
+              { optionen: ["das Kino", "das Kieno"], loesung: "das Kino" },
+              { optionen: ["die Maschine", "die Maschiene"], loesung: "die Maschine" },
+              { optionen: ["fahren", "faren"], loesung: "fahren" },
+              { optionen: ["die Zahl", "die Zal"], loesung: "die Zahl" },
+              { optionen: ["das Boot", "das Bot"], loesung: "das Boot" },
+              { optionen: ["das Meer", "das Mer"], loesung: "das Meer" },
+              { optionen: ["die Hose", "die Hohse"], loesung: "die Hose" },
+              { optionen: ["ihr", "ier"], loesung: "ihr" }
+            ]
+          },
+          {
+            typ: "auswahl",
+            auftrag: "Unter welchem Wort findest du es im Wörterbuch?",
+            hinweis: "Im Wörterbuch stehen Verben in der Grundform, Nomen in der Einzahl und Adjektive in der Grundstufe.",
+            items: [
+              { text: "Er [lief] schnell.", optionen: ["laufen", "lief", "liefen"], loesung: "laufen" },
+              { text: "Die [Bäume] sind hoch.", optionen: ["Baum", "Bäume", "Bäumen"], loesung: "Baum" },
+              { text: "Mein Bruder ist [größer].", optionen: ["groß", "größer", "große"], loesung: "groß" },
+              { text: "Wir haben [gesungen].", optionen: ["singen", "gesungen", "sang"], loesung: "singen" },
+              { text: "Sie [ging] nach Hause.", optionen: ["gehen", "ging", "gegangen"], loesung: "gehen" },
+              { text: "Die [Mäuse] laufen weg.", optionen: ["Maus", "Mäuse", "Mäusen"], loesung: "Maus" }
+            ]
+          },
+          {
+            typ: "markieren",
+            auftrag: "Fehlerdetektiv: Klicke alle falsch geschriebenen Wörter an.",
+            hinweis: "Prüfe jedes Wort mit einer Strategie. In jedem Satz sind ein oder zwei Fehler.",
+            items: [
+              "Gestern *lif* ich mit meinem Hund in den *Walt*.",
+              "Die *Hende* waren kalt, weil es *ser* windig war.",
+              "Im *Mehr* schwimmen Fische und ein großes *Schif* fährt vorbei.",
+              "Mein Freund *get* jeden Tag zu Fuß zur Schule."
             ]
           }
         ]
