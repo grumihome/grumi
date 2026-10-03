@@ -342,12 +342,6 @@
       color: var(--green-ink);
     }
 
-    .module {
-      margin-top: 44px;
-      padding-top: 6px;
-      border-top: 1px solid var(--line);
-    }
-
     .module-grid {
       display: grid;
       grid-template-columns: minmax(250px, 0.75fr) minmax(0, 1.5fr);
@@ -723,7 +717,8 @@
       resize: vertical;
     }
 
-    .ki-input:focus-visible {
+    .ki-input:focus-visible,
+    .name-input:focus-visible {
       outline: 3px solid var(--blue);
       outline-offset: 2px;
     }
@@ -770,18 +765,64 @@
       font-size: 0.78rem;
     }
 
-    .back {
-      margin: 18px 0 0;
+    .anmeldung {
+      width: min(420px, calc(100% - 32px));
+      padding: 24px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
     }
 
-    .back a {
+    .anmeldung:not([open]) {
+      display: none;
+    }
+
+    .anmeldung::backdrop {
+      background: rgba(23, 32, 51, 0.6);
+    }
+
+    .anmeldung h2 {
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+
+    .anmeldung p {
+      margin: 0;
       color: var(--muted);
-      font-weight: 700;
-      text-decoration: none;
     }
 
-    .back a:hover {
-      text-decoration: underline;
+    .anmeldung label {
+      display: block;
+      margin: 14px 0 6px;
+      font-weight: 800;
+    }
+
+    .name-input {
+      display: block;
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .back {
+      margin: 0;
+    }
+
+    .module-grid + .back {
+      margin-top: 24px;
+    }
+
+    .back .btn {
+      display: inline-block;
+      text-decoration: none;
     }
 
     .lp-wrap {
@@ -952,7 +993,7 @@
   </header>
 
   <main id="start">
-    <section class="page intro" aria-labelledby="seitentitel">
+    <section class="page intro" aria-labelledby="seitentitel" data-uebersicht>
       <div>
         <p class="eyebrow">Deutsch · Mittelschule Unterhaching am Sportpark</p>
         <h1 id="seitentitel">Grammatik in der 5. Klasse</h1>
@@ -1012,7 +1053,7 @@
       </div>
     </section>
 
-    <section class="page" id="module" aria-labelledby="module-title">
+    <section class="page" id="module" aria-labelledby="module-title" data-uebersicht>
       <div class="section-head">
         <div>
           <p class="eyebrow">Übersicht</p>
@@ -1021,10 +1062,12 @@
         <p>Wähle ein Modul aus. Mit „Prüfen“ siehst du sofort, was richtig ist. Mit „Neu starten“ kannst du jede Aufgabe wiederholen.</p>
       </div>
       <div class="progress">
+        <span id="gruss" hidden></span>
         <div class="bar" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="42" aria-valuenow="0" id="fortschritt">
           <span id="fortschritt-balken"></span>
         </div>
         <span id="fortschritt-text">0 von 42 Aufgaben gelöst</span>
+        <button type="button" class="btn ghost" id="abmelden" hidden>Abmelden</button>
       </div>
       <noscript><p>Bitte JavaScript aktivieren, damit die Aufgaben angezeigt werden.</p></noscript>
       <div class="module-list" id="modul-liste"></div>
@@ -1032,7 +1075,7 @@
 
     <div id="modul-bereich"></div>
 
-    <section class="page" id="lehrplan" aria-labelledby="lehrplan-title">
+    <section class="page" id="lehrplan" aria-labelledby="lehrplan-title" data-uebersicht>
       <div class="section-head">
         <div>
           <p class="eyebrow">Für Lehrkräfte</p>
@@ -1060,6 +1103,16 @@
     <span>Deutsch · Grammatik Klasse 5</span>
     <span>Mittelschule Unterhaching am Sportpark</span>
   </footer>
+
+  <dialog class="anmeldung" id="anmeldung" aria-labelledby="anmeldung-titel">
+    <form method="dialog">
+      <h2 id="anmeldung-titel">Wie heißt du?</h2>
+      <p>Dann merkt sich die Seite, welche Aufgaben du schon gelöst hast, solange du sie offen lässt. Dein Name bleibt auf diesem Gerät.</p>
+      <label for="anmeldung-name">Dein Vorname</label>
+      <input class="name-input" id="anmeldung-name" type="text" maxlength="20" autocomplete="off" autocorrect="off" spellcheck="false" required>
+      <button class="btn">Los geht’s</button>
+    </form>
+  </dialog>
 
   <script>
     // Aufgabentypen:
@@ -1849,6 +1902,29 @@
 
     const alleAufgaben = [];
 
+    // Name und Stand bleiben nur in diesem Tab (sessionStorage) und verlassen das Gerät nicht.
+    // Der Name gilt für alle GRUMI-Seiten, der Stand nur für diese.
+    const SPEICHER_NAME = "grumi-name";
+    const SPEICHER_STAND = "grumi-deutsch-5";
+
+    function lade(schluessel) {
+      try {
+        return JSON.parse(sessionStorage.getItem(schluessel));
+      } catch {
+        return null;
+      }
+    }
+
+    function sichere(schluessel, wert) {
+      try {
+        sessionStorage.setItem(schluessel, JSON.stringify(wert));
+      } catch {
+        // Ist der Speicher gesperrt, läuft die Seite weiter und merkt sich nur nichts.
+      }
+    }
+
+    const stand = { geloest: [], ki: {}, ...lade(SPEICHER_STAND) };
+
     function esc(text) {
       return String(text).replace(/[&<>"]/g, (z) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[z]);
     }
@@ -1967,6 +2043,8 @@
         ergebnis.textContent = `Alles richtig, stark! (${richtig} von ${gesamt})`;
         ergebnis.className = "result good";
         zustand.geloest = true;
+        stand.geloest = alleAufgaben.filter((z) => z.geloest).map((z) => z.nummer);
+        sichere(SPEICHER_STAND, stand);
         aktualisiereFortschritt();
       } else if (richtig * 2 >= gesamt) {
         ergebnis.textContent = `${richtig} von ${gesamt} richtig. Schau dir die roten Stellen noch einmal an.`;
@@ -2011,7 +2089,7 @@
       karte.className = "task";
       karte.innerHTML = `
         <div class="task-head">
-          <span class="tag">Aufgabe ${nummer}</span>
+          <span class="tag">Aufgabe ${nummer}<span class="done" hidden> · ✓ gelöst</span></span>
           <h3>${fmt(aufgabe.auftrag)}</h3>
         </div>
         ${aufgabe.hinweis ? `<p class="hint">${fmt(aufgabe.hinweis)}</p>` : ""}
@@ -2022,7 +2100,7 @@
           <button type="button" class="btn ghost" data-aktion="neu">Neu starten</button>
         </div>
         <p class="result" aria-live="polite"></p>`;
-      const zustand = { aufgabe, karte, geloest: false, hilfe: false };
+      const zustand = { aufgabe, karte, nummer, geloest: stand.geloest.includes(nummer), hilfe: false };
       zeichneItems(zustand);
 
       karte.addEventListener("click", (e) => {
@@ -2124,10 +2202,28 @@
       const kasten = karte.querySelector(".ki-feedback");
       const knopf = karte.querySelector('[data-aktion="ki"]');
 
+      stand.ki[nummer] = { text: "", antwort: "", ...stand.ki[nummer] };
+      const gemerkt = stand.ki[nummer];
+
       const zeigeZaehler = () => {
         zaehler.textContent = `${feld.value.length} / ${KI_MAX_ZEICHEN} Zeichen`;
       };
-      feld.addEventListener("input", zeigeZaehler);
+      const merkeKi = (antwort) => {
+        gemerkt.text = feld.value;
+        gemerkt.antwort = antwort;
+        sichere(SPEICHER_STAND, stand);
+      };
+      feld.addEventListener("input", () => {
+        zeigeZaehler();
+        merkeKi(gemerkt.antwort);
+      });
+
+      feld.value = gemerkt.text;
+      zeigeZaehler();
+      if (gemerkt.antwort) {
+        kasten.querySelector("p").textContent = gemerkt.antwort;
+        kasten.hidden = false;
+      }
 
       karte.querySelector('[data-aktion="neu"]').addEventListener("click", () => {
         feld.value = "";
@@ -2135,11 +2231,13 @@
         ergebnis.textContent = "";
         ergebnis.className = "result";
         kasten.hidden = true;
+        merkeKi("");
       });
 
       knopf.addEventListener("click", async () => {
         const text = feld.value.trim();
         kasten.hidden = true;
+        merkeKi("");
         if (text.length < 20) {
           ergebnis.textContent = "Schreibe zuerst ein paar Sätze.";
           ergebnis.className = "result low";
@@ -2152,9 +2250,11 @@
           ergebnis.textContent = "Der KI-Server wacht gerade auf. Beim ersten Mal kann das bis zu einer Minute dauern …";
         }, 6000);
         try {
-          kasten.querySelector("p").textContent = await frageKi(kiNachricht(aufgabe, text));
+          const antwort = await frageKi(kiNachricht(aufgabe, text));
+          kasten.querySelector("p").textContent = antwort;
           kasten.hidden = false;
           ergebnis.textContent = "";
+          merkeKi(antwort);
         } catch (fehler) {
           ergebnis.textContent = fehler.message;
           ergebnis.className = "result low";
@@ -2174,8 +2274,13 @@
       balken.setAttribute("aria-valuenow", String(geloest));
       document.getElementById("fortschritt-balken").style.width = `${(geloest / gesamt) * 100}%`;
       document.getElementById("fortschritt-text").textContent = `${geloest} von ${gesamt} Aufgaben gelöst`;
+      alleAufgaben.forEach((z) => {
+        z.karte.querySelector(".done").hidden = !z.geloest;
+      });
       MODULE.forEach((m) => {
-        const fertig = alleAufgaben.filter((z) => z.modul === m.id).every((z) => z.geloest);
+        const aufgaben = alleAufgaben.filter((z) => z.modul === m.id);
+        const fertig = aufgaben.every((z) => z.geloest);
+        document.querySelector(`[data-stand="${m.id}"]`).textContent = aufgaben.filter((z) => z.geloest).length;
         document.querySelectorAll(`[data-fertig="${m.id}"]`).forEach((el) => {
           el.hidden = !fertig;
         });
@@ -2184,6 +2289,7 @@
 
     const modulListe = document.getElementById("modul-liste");
     const modulBereich = document.getElementById("modul-bereich");
+    const zurueck = '<p class="back"><a class="btn ghost" href="#module">← Zurück zur Übersicht</a></p>';
 
     MODULE.forEach((m) => {
       const uebungen = m.aufgaben.filter((a) => a.typ !== "ki").length;
@@ -2194,17 +2300,18 @@
           <h3>${esc(m.titel)}</h3>
           <p>${esc(m.kurz)}</p>
           <span class="card-foot">
-            <span>${uebungen} Aufgaben${mitKi ? '<span class="ki-badge">+ KI</span>' : ""}</span>
+            <span><span data-stand="${m.id}">0</span> von ${uebungen} gelöst${mitKi ? '<span class="ki-badge">+ KI</span>' : ""}</span>
             <span class="done" data-fertig="${m.id}" hidden>✓ geschafft</span>
           </span>
         </a>`);
 
       const abschnitt = document.createElement("section");
       abschnitt.className = "page module";
-      abschnitt.id = m.id;
+      abschnitt.dataset.modul = m.id;
       abschnitt.style.setProperty("--accent", `var(--${m.farbe})`);
       abschnitt.setAttribute("aria-labelledby", `${m.id}-titel`);
       abschnitt.innerHTML = `
+        ${zurueck}
         <div class="section-head">
           <div>
             <p class="eyebrow">Modul ${m.nr} · ${esc(m.bereich)}</p>
@@ -2219,7 +2326,7 @@
           </aside>
           <div class="tasks"></div>
         </div>
-        <p class="back"><a href="#module">↑ Zur Modulübersicht</a></p>`;
+        ${zurueck}`;
       const ablage = abschnitt.querySelector(".tasks");
       m.aufgaben.forEach((aufgabe, i) => {
         const nummer = `${m.nr}.${i + 1}`;
@@ -2246,12 +2353,65 @@
     });
     aktualisiereFortschritt();
 
+    const anmeldung = document.getElementById("anmeldung");
+    let vorname = lade(SPEICHER_NAME);
+
+    function zeigeVorname() {
+      const gruss = document.getElementById("gruss");
+      gruss.textContent = vorname ? `Hallo, ${vorname}!` : "";
+      gruss.hidden = !vorname;
+      document.getElementById("abmelden").hidden = !vorname;
+    }
+
+    anmeldung.querySelector("form").addEventListener("submit", () => {
+      vorname = document.getElementById("anmeldung-name").value.trim();
+      sichere(SPEICHER_NAME, vorname);
+      zeigeVorname();
+    });
+
+    document.getElementById("abmelden").addEventListener("click", () => {
+      if (!confirm("Möchtest du dich abmelden? Dein Name und deine gelösten Aufgaben werden gelöscht.")) return;
+      try {
+        sessionStorage.clear();
+      } catch {
+        // Ohne Speicher gibt es nichts zu löschen.
+      }
+      location.reload();
+    });
+
+    zeigeVorname();
+    if (!vorname && anmeldung.showModal) anmeldung.showModal();
+
+    // Jedes Modul ist eine eigene Seite: Die Adresse (z. B. #silben) bestimmt, ob die Übersicht oder ein Modul zu sehen ist.
+    // Die Modulabschnitte haben bewusst keine id, sonst springt der Browser beim Öffnen selbst dorthin statt an den Seitenanfang.
+    let seite = null;
+
+    function zeigeSeite() {
+      const kennung = location.hash.slice(1);
+      const modul = MODULE.some((m) => m.id === kennung) ? kennung : "";
+      if (modul === seite) return false;
+      seite = modul;
+      document.querySelectorAll("[data-uebersicht]").forEach((el) => {
+        el.hidden = modul !== "";
+      });
+      document.querySelectorAll(".module").forEach((el) => {
+        el.hidden = el.dataset.modul !== modul;
+      });
+      return true;
+    }
+
+    function springe(ziel) {
+      if (ziel) ziel.scrollIntoView({ behavior: "instant" });
+      else window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
+    zeigeSeite();
+    window.addEventListener("hashchange", () => {
+      if (zeigeSeite()) springe(document.getElementById(location.hash.slice(1)));
+    });
     window.addEventListener("load", () => {
-      const ziel = location.hash && document.getElementById(location.hash.slice(1));
-      if (!ziel) return;
-      document.documentElement.style.scrollBehavior = "auto";
-      ziel.scrollIntoView();
-      document.documentElement.style.scrollBehavior = "";
+      const ziel = document.getElementById(location.hash.slice(1));
+      if (ziel) springe(ziel);
     });
   </script>
 </body>
